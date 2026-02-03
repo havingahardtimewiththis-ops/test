@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Charles Benjamin</title>
+    <link rel="shortcut icon" type="image/png" href="https://a.imge.to/2019/06/29/gD8YY.png">
+    <style>
+        body {
+            font-family: "Baskerville", serif;
+            font-style: italic;
+            background-color: #f8f8f8;
+            font-size: clamp(0.9rem, 2vw, 1.15rem);
+            /* Responsive text size */
+            z-index: 1001;
+            color: #000;
+            margin: 10px;
+        }
+        .hover-link {
+            display: block;
+            text-align: right;
+            color: #000;
+            text-decoration: none;
+            position: relative;
+            font-size: clamp(0.9rem, 2vw, 1.15rem);
+            /* Responsive text size */
+            z-index: 1001;
+            cursor: pointer;
+            margin-bottom: -10px;
+            margin-left: 0;
+        }
+        .group-link {
+            text-align: left;
+        }
+        .hover-image {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-height: 80vh;
+            width: 75%;
+            border: 0;
+            background: #f8f8f8;
+            z-index: 1000;
+            padding: 0;
+        }
+        .hover-link:hover+.hover-image {
+            display: block;
+        }
+        @media (max-width: 600px) {
+            .hover-link {
+                font-size: 0.20rem;
+                white-space: normal;
+                text-align: right;
+            }
+            .group-link {
+                text-align: left;
+            }
+            .hover-image {
+                position: static;
+                display: block !important;
+                width: 30%;
+                margin: 100px 0;
+            }
+        }
+    </style>
+</head>
+<body bgcolor="FFFFFF" text="grey" link="#000000" vlink="#000000" alink="#000000">
+    <div class="row" style="text-align: right; padding-right: 10px;">
+        <i>
+            <a style="text-decoration: underline; color:black; font-style: italic;" href="home"
+                target="_self">Exhibitions</a>&nbsp;&nbsp;
+            <a style="text-decoration: none; color:black;" href="works" target="_self"
+                target="blank">Works</a>&nbsp;&nbsp;
+            <a style="text-decoration: none; color:black;" href="souvenirgiftshop" target="_self"
+                target="blank">Giftshop</a>&nbsp;&nbsp;
+            &nbsp;&nbsp;<a style="text-decoration: none; color:black;" href="text"
+                target="_self">Texts/publication</a>&nbsp;&nbsp;
+            <a style=" text-decoration: none; color:black;" href="contact" target="_self"><span
+                    style="color:black">Contact</span>
+            </a>
+            &nbsp;&nbsp;<a style="text-decoration: none; color:black;" href="http:\\www.mariokreuzberg.com"
+                target="_self">Mario Kreuzberg</a>&nbsp;&nbsp;
+        </i>
+    </div>
+    <p />
+    <br><br>
+    <!-- Solo Projects -->
+    <div id="solo-projects">
+        <div class="hover-link" style="margin-bottom: 20px;">SOLO</div>
+        <a href="open" class="hover-link">OPEN, Barsa, Barcelona 2025</a>
+        <img class="hover-image" src="https://i.imgur.com/yd4W8yS.jpg" alt="PJxOU4.jpg">
+        <br>
+        <a href="writingonanewleaf" class="hover-link">Writing on a new leaf, Kunstverein Germersheim, 2025</a>
+        <img class="hover-image" src="https://i.imgur.com/KEqdQDs.jpeg" alt="Image preview">
+        <br>
+        <a href="emptyinside" class="hover-link">Empty Inside, Milieu, Bern, 2025</a>
+        <img class="hover-image" src="https://i.imgur.com/wsgRe5X.jpeg" alt="Image preview">
+        <br>
+        <a href="purecore2016-2023" class="hover-link">Purecore 2016-2023, RUF, Vienna, curated by Sebastian Schachinge
+            2023</a>
+        <img class="hover-image" src="https://i.imgur.com/XZqXgEj.jpg" alt="Image preview"> <br>
+        <a href="zuvielehintergrund" class="hover-link">Zu Viele Hintergrund, Hirscheneck, Basel 2023</a>
+        <img class="hover-image" src="https://i.imgur.com/yx8QZje.jpg" alt="PJxOU4.jpg">
+        <br>
+        <a href="laespanavacia" class="hover-link">La España Vacía, Palafrugell 2022</a>
+        <img class="hover-image" src="https://i.imgur.com/HEEMZ7z.jpg" alt="Image preview">
+        <br>
+        <a href="filler" class="hover-link">Filler, Number 1 Mainroad, Berlin, curated by Tom Esam and Paul Ferens
+            2022</a>
+        <img class="hover-image" src="https://i.imgur.com/rQi8PDf.jpg" alt="Image preview">
+        <br>
+        <br>
+        <a href="theholeworld" class="hover-link">THE HOLE WORLD, Artemis Fontana, Paris, curated by Pauline Beaudemont
+            2022</a>
+        <img class="hover-image" src="https://i.imgur.com/lrtiIfb.jpg" alt="Image preview">
+        <br>
+        <a href="masalla" class="hover-link">Más allá, Malpaís, Barcelona, curated by Joan Pallé 2021</a>
+        <img class="hover-image" src="https://i.imgur.com/SMiWCKh.jpg" alt="Image preview">
+        <br>
+        <a class="hover-link">HELLEN KELLER, Inklusive Arlesheim, Arlesheim 2021</a>
+        <img class="hover-image" src="https://i.imgur.com/a13ycks.jpg" alt="Image preview">
+        <br>
+        <br>
+        <a href="christmasgiftshop" class="hover-link">Christmas Gift Shop, Windhager von Kaenel, Zurich 2020</a>
+        <img class="hover-image" src="https://i.imgur.com/vxW7YlO.jpg" alt="Image preview">
+        <br>
+        <a href="notagain" class="hover-link">Not Again, Windhager von Kaenel, Zurich 2020</a>
+        <img class="hover-image" src="https://i.imgur.com/5O055jE.jpg" alt="Image preview">
+        <br>
+        <a href="36viewsofvolkspaarkhumboldthain" class="hover-link">36 Views of Volkspark Humboldthain, Volkspark
+            Humboldthain, Berlin 2020</a>
+        <img class="hover-image" src="https://i.imgur.com/GqSUZR0.jpg" alt="Image preview">
+        <br>
+        <br>
+        <a href="pforeverything" class="hover-link">P for Everything, Kunsthalle Lissabon, Lisbon, curated by Samuel
+            Leuenberge 2019</a>
+        <img class="hover-image" src="https://i.imgur.com/mK0H9oj.jpg" alt="Image preview">
+        <br>
+        <a href="nouvellevougue" class="hover-link">Nouvelle Vogue, Mommsen35, Berlin, curated by Manuela Morales
+            2019</a>
+        <img class="hover-image" src="https://i.imgur.com/A6aXma9.jpg" alt="Image preview">
+        <br>
+        <a href="notoldnotnew" class="hover-link">Not Old Not New, Salts, Birsfelden, curated by Samuel Leuenberger and
+            Elise Lammer 2018</a>
+        <img class="hover-image" src="https://i.imgur.com/8z8bXvu.jpg" alt="Image preview">
+        <br>
+        <a href="eternalnewdaymuseum" class="hover-link">Eternal New Day Museum, Palafrugell, 2018</a>
+        <img class="hover-image" src="https://i.imgur.com/jUz4l2W.jpg" alt="Image preview">
+        <br>
+        <br>
+        <a href="puta" class="hover-link">PUTA, Palafrugell, 2017</a>
+        <img class="hover-image" src="https://i.imgur.com/GrEfe0i.jpg" alt="Image preview">
+        <br>
+        <br>
+        <a href="systemofpainting" class="hover-link">System of Painting That Will Work Forever Dinner, New Day Gallery,
+            Berlin, 2016</a>
+        <img class="hover-image" src="https://i.imgur.com/Pc3Is1w.jpg" alt="Image preview">
+    </div>
+    <!-- Group Projects -->
+    <div id="group-projects" style="margin-top: 50px;">
+        <div class="hover-link group-link" style="margin-bottom: 20px;">GROUP</div>
+        <a href="neutro" class="hover-link group-link">2025 Neutro, Mae West, Lausanne with Manuela Morales</a>
+        <img class="hover-image" src="https://i.imgur.com/Dl5648z.jpeg">
+        <br>
+        <a href="leaveahello" class="hover-link group-link">2023 Leave a Hello, Kunsthalle Basel, Group exhibition
+            curated by Ines Tondar</a>
+        <img class="hover-image" src="https://i.imgur.com/4rM0U5I.jpg" alt="Image preview">
+        <br>
+        <a href="toomanywonderfulpeoplenotenoughbikes" class="hover-link group-link">2022 Too Many Wonderful People Not
+            Enough Bikes, Mario Kreuzberg, Basel, with Manuela Morales</a>
+        <img class="hover-image" src="https://i.imgur.com/3sDLM9K.jpg" alt="Image preview">
+        <br>
+        <a href="thefridgeshow" class="hover-link group-link">2022 The Fridge Show, Pallazina, Basel, group
+            exhibition</a>
+        <img class="hover-image" src="https://i.imgur.com/p0cIxnH.jpg" alt="Image preview">
+        <br>
+        <a href="webelongtoeachother" class="hover-link group-link">2022 We Belong To Eachother, Carlier Gebauer curated
+            by Chus Martinez, Berlin, Group exhibition</a>
+        <img class="hover-image" src="https://i.imgur.com/dfCvsyc.jpg" alt="Image preview">
+        <br>
+        <a href="#" class="hover-link group-link">2022 Hobby Lobby, HGK MA Graduation show, Basel</a>
+        <img class="hover-image" src="https://i.imgur.com/sr80kuQ.jpg" alt="Image preview">
+        <br>
+        <a href="hotellytissot" class="hover-link group-link">2022 Hotelly Tissot, Studio Kelly Tissot, Basel, with Adam
+            Szekeres, Photography by Kelly Tissot</a>
+        <img class="hover-image" src="https://i.imgur.com/pjnmIpE.jpg" alt="Image preview">
+        <a href="thesunalsorises" class="hover-link group-link">2021 The Sun Also Rises, Everyday Gallery, Antwerp,
+            Group exhibition curated by Leo Lopez</a>
+        <img class="hover-image" src="https://i.imgur.com/UJXVfHs.jpg" alt="Image preview">
+        <br>
+        <a href="thejoyofpainting" class="hover-link group-link">2021 The Joy of Painting. Deborah Bowmann, Brussels,
+            with Deborah Bowmann</a>
+        <img class="hover-image" src="https://i.imgur.com/y90kp9V.jpg" alt="Image preview">
+        <br>
+        <a href="whydoyouinvitemeifyouknowhowiget" class="hover-link group-link">2021 Why do you invite me when you know
+            how I get?, Rheum Room, Basel, with Manuela Morales Délano</a>
+        <img class="hover-image" src="https://i.imgur.com/n9XXvWp.jpg" alt="Image preview">
+        <br>
+        <a href="planetorsimanirana" class="hover-link group-link">2021 Life on Planet Orsimanirana curated by Jerzy
+            Seymour at MKG Hamburg, with Lee Scratch Perry</a>
+        <img class="hover-image" src="https://i.imgur.com/QdbMuNJ.jpg" alt="Image preview">
+        <br>
+        <a href="euroneumode" class="hover-link group-link">2020 EURO NEU MODE, Everyday Gallery, Antwerp, wih Paul
+            Ferens curated by Leo Lopez</a>
+        <img class="hover-image" src="https://i.imgur.com/uExFcTg.jpg" alt="Image preview">
+        <br>
+        <a href="megustaperomeasusta" class="hover-link group-link">2018 Me Gusta Pero Me Asusta, Gallery Mario
+            Kreuzberg, Berlin, with Octavio Garabello curated by Manuela Morales</a>
+        <img class="hover-image" src="https://i.imgur.com/Vaz4kLU.jpg" alt="Image preview">
+        <br>
+        <br>
+        <a href="baanaanasbananasbananasbananas" class="hover-link group-link">2017 BANANAS BANANAS BANANAS BANANAS, New
+            Day Gallery, Berlin, with Paul Ferens</a>
+        <img class="hover-image" src="https://i.imgur.com/NyfrE5b.jpg" alt="Image preview">
+        <br>
+        <a href="somoslosmejoresporquellaamaarlaatencioneslomejor" class="hover-link group-link">2017 Somos Los Mejores
+            Porque Llamar La Atención Es Lo Mejor, Palafrugell, with Manuela Morales
+        </a>
+        <img class="hover-image" src="https://i.imgur.com/yM0rvSA.jpg" alt="Image preview">
+        <br>
+        <a href="beaingabetterperson" class="hover-link group-link">2016 Being a Better Person (and Possibly Helping
+            Others), Gallery Mario Kreuzberg, Berlin, with Pablo Fernandez</a>
+        <img class="hover-image" src="https://i.imgur.com/REJUWJg.jpg" alt="Image preview">
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const links = document.querySelectorAll('.hover-link');
+            const hoverSupported = window.matchMedia('(hover: hover)').matches;
+            if (!hoverSupported) {
+                links.forEach(link => {
+                    let clickedOnce = false;
+                    const image = link.nextElementSibling;
+                    link.addEventListener('click', (e) => {
+                        if (!clickedOnce) {
+                            e.preventDefault();
+                            image.style.display = 'block';
+                            clickedOnce = true;
+                            setTimeout(() => {
+                                image.style.display = 'none';
+                                clickedOnce = false;
+                            }, 5000);
+                        }
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html>
