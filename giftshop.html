@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Charles Benjamin - Souvenir Gift Shop</title>
+    <link rel="shortcut icon" type="image/png" href="https://a.imge.to/2019/06/29/gD8YY.png">
+    <style>
+        body {
+            font-family: "Baskerville", serif;
+            font-style: italic;
+            background-color: #f8f8f8;
+            font-size: clamp(0.9rem, 2vw, 1.15rem);
+            z-index: 1001;
+            color: #000;
+            margin: 10px;
+        }
+        /* Navigation (Shared) */
+        .nav-row {
+            text-align: right;
+            padding-right: 10px;
+        }
+        /* Shop Container & Viewer */
+        #shop-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 80vh;
+            /* Center vertically in the viewport */
+            text-align: center;
+            padding-top: 20px;
+        }
+        #shop-img {
+            max-height: 60vh;
+            max-width: 90%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            cursor: pointer;
+            /* Indicates click to shuffle */
+            margin-bottom: 20px;
+            user-select: none;
+        }
+        .shop-info {
+            font-family: "Baskerville", serif;
+            font-style: italic;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .shop-desc {
+            margin: 5px 0;
+            font-size: 1.1rem;
+        }
+        .shop-price-row {
+            margin: 5px 0;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            align-items: center;
+        }
+        .shop-price {
+            font-weight: bold;
+        }
+        .shop-sold {
+            color: red;
+            font-weight: bold;
+            display: none;
+            /* Hidden by default */
+        }
+        .shop-sold.visible {
+            display: inline;
+        }
+        .request-btn {
+            display: inline-block;
+            margin-top: 15px;
+            text-decoration: underline;
+            color: black;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        .request-btn:hover {
+            text-decoration: none;
+        }
+        @media (max-width: 600px) {
+            #shop-img {
+                max-height: 50vh;
+                max-width: 90%;
+            }
+        }
+    </style>
+</head>
+<body bgcolor="FFFFFF" text="grey" link="#000000" vlink="#000000" alink="#000000">
+    <!-- Navigation -->
+    <div class="nav-row">
+        <i>
+            <a style="text-decoration: none; color:black; font-style: italic;" href="index.html"
+                target="_self">Exhibitions</a>&nbsp;&nbsp;
+            <a style="text-decoration: none; color:black;" href="work" target="_self"
+                target="blank">Works</a>&nbsp;&nbsp;
+            <a style="text-decoration: underline; color:black;" href="souvenirgiftshop" target="_self"
+                target="blank">Giftshop</a>&nbsp;&nbsp;
+            &nbsp;&nbsp;<a style="text-decoration: none; color:black;" href="text"
+                target="_self">Texts/publication</a>&nbsp;&nbsp;
+            <a style=" text-decoration: none; color:black;" href="contact" target="_self"><span
+                    style="color:black">Contact</span></a>
+            &nbsp;&nbsp;<a style="text-decoration: none; color:black;" href="http:\\www.mariokreuzberg.com"
+                target="_self">Mario Kreuzberg</a>&nbsp;&nbsp;
+        </i>
+    </div>
+    <!-- Main Shop Viewer -->
+    <div id="shop-container">
+        <img id="shop-img" src="" alt="Souvenir Item">
+        <div class="shop-info">
+            <div id="shop-desc" class="shop-desc"></div>
+            <div class="shop-price-row">
+                <span id="shop-price" class="shop-price"></span>
+                <span id="shop-sold" class="shop-sold">SOLD</span>
+            </div>
+            <a id="request-btn" class="request-btn" href="#">Request this item</a>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Placeholder Data - 20 Items
+            const products = [
+                { id: 1, src: "https://i.imgur.com/gD8YY.png", desc: "Item 1 Description", price: "100 CHF", sold: false },
+                { id: 2, src: "https://i.imgur.com/gD8YY.png", desc: "Item 2 Description", price: "150 CHF", sold: true },
+                { id: 3, src: "https://i.imgur.com/gD8YY.png", desc: "Item 3 Description", price: "200 CHF", sold: false },
+                { id: 4, src: "https://i.imgur.com/gD8YY.png", desc: "Item 4 Description", price: "120 CHF", sold: false },
+                { id: 5, src: "https://i.imgur.com/gD8YY.png", desc: "Item 5 Description", price: "80 CHF", sold: false },
+                { id: 6, src: "https://i.imgur.com/gD8YY.png", desc: "Item 6 Description", price: "300 CHF", sold: true },
+                { id: 7, src: "https://i.imgur.com/gD8YY.png", desc: "Item 7 Description", price: "90 CHF", sold: false },
+                { id: 8, src: "https://i.imgur.com/gD8YY.png", desc: "Item 8 Description", price: "110 CHF", sold: false },
+                { id: 9, src: "https://i.imgur.com/gD8YY.png", desc: "Item 9 Description", price: "50 CHF", sold: false },
+                { id: 10, src: "https://i.imgur.com/gD8YY.png", desc: "Item 10 Description", price: "500 CHF", sold: true },
+                { id: 11, src: "https://i.imgur.com/gD8YY.png", desc: "Item 11 Description", price: "250 CHF", sold: false },
+                { id: 12, src: "https://i.imgur.com/gD8YY.png", desc: "Item 12 Description", price: "180 CHF", sold: false },
+                { id: 13, src: "https://i.imgur.com/gD8YY.png", desc: "Item 13 Description", price: "130 CHF", sold: false },
+                { id: 14, src: "https://i.imgur.com/gD8YY.png", desc: "Item 14 Description", price: "160 CHF", sold: false },
+                { id: 15, src: "https://i.imgur.com/gD8YY.png", desc: "Item 15 Description", price: "60 CHF", sold: false },
+                { id: 16, src: "https://i.imgur.com/gD8YY.png", desc: "Item 16 Description", price: "75 CHF", sold: false },
+                { id: 17, src: "https://i.imgur.com/gD8YY.png", desc: "Item 17 Description", price: "220 CHF", sold: true },
+                { id: 18, src: "https://i.imgur.com/gD8YY.png", desc: "Item 18 Description", price: "95 CHF", sold: false },
+                { id: 19, src: "https://i.imgur.com/gD8YY.png", desc: "Item 19 Description", price: "140 CHF", sold: false },
+                { id: 20, src: "https://i.imgur.com/gD8YY.png", desc: "Item 20 Description", price: "1000 CHF", sold: true },
+            ];
+            const imgEl = document.getElementById('shop-img');
+            const descEl = document.getElementById('shop-desc');
+            const priceEl = document.getElementById('shop-price');
+            const soldEl = document.getElementById('shop-sold');
+            const requestBtn = document.getElementById('request-btn');
+            let currentIndex = -1;
+            // Initialize
+            showRandomProduct();
+            // Click Image -> Show another random product
+            imgEl.addEventListener('click', () => {
+                showRandomProduct();
+            });
+            function showRandomProduct() {
+                let newIndex;
+                // Ensure we don't pick the same image twice in a row (unless there's only 1 item)
+                do {
+                    newIndex = Math.floor(Math.random() * products.length);
+                } while (newIndex === currentIndex && products.length > 1);
+                currentIndex = newIndex;
+                renderProduct(products[currentIndex]);
+            }
+            function renderProduct(product) {
+                imgEl.src = product.src;
+                descEl.textContent = product.desc;
+                priceEl.textContent = product.price;
+                // Handle SOLD tag
+                if (product.sold) {
+                    soldEl.classList.add('visible');
+                    // Optional: Disable request button if sold? 
+                    // User didn't specify, but often sold items can't be requested.
+                    // For now, I'll update the mailto to say "Inquiry about SOLD item" just in case.
+                    requestBtn.textContent = "Send email regarding this item";
+                } else {
+                    soldEl.classList.remove('visible');
+                    requestBtn.textContent = "Request this item";
+                }
+                // Update Mailto Link
+                // Using generic email or if user has one. I'll use a placeholder or blank for now.
+                // Assuming "contact" page has the email, but for mailto we need an address.
+                // I'll put "charlesbenjamin@example.com" as placeholder or just leave it open to user to fill.
+                // Better: I'll use a generic address and ask user to fill it.
+                const email = "placeholder@email.com";
+                const subject = `Request for ${product.desc} (ID: ${product.id})`;
+                const body = `Hi,\n\nI am interested in purchasing: ${product.desc} (${product.price}).\n\nPlease let me know if it is available.`;
+                requestBtn.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            }
+        });
+    </script>
+</body>
+</html>
