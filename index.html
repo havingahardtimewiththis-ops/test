@@ -36,7 +36,9 @@
             left: 50%;
             transform: translate(-50%, -50%);
             max-height: 80vh;
-            width: 75%;
+            max-width: 75%;
+            width: auto;
+            height: auto;
             border: 0;
             background: #f8f8f8;
             z-index: 1000;
@@ -74,7 +76,9 @@
             position: relative;
             /* It's centered by the flex container, but we keep sizings */
             max-height: 80vh;
-            width: 75%;
+            max-width: 75%;
+            width: auto;
+            height: auto;
             object-fit: contain;
             cursor: pointer;
             /* Indicates clickable */
@@ -101,7 +105,8 @@
             }
             /* Viewer adjustments for mobile if needed */
             #viewer-img {
-                width: 90%;
+                max-width: 90%;
+                width: auto;
             }
         }
     </style>
@@ -131,221 +136,238 @@
         <div id="solo-projects">
             <div class="hover-link" style="margin-bottom: 20px;">SOLO/DUO</div>
             <!-- Example of multi-image project -->
-                <a href="open" class="hover-link"
-                data-gallery="https://i.imgur.com/Xk0sl8B.jpeg,https://i.imgur.com/2rjEZ37.jpeg,https://i.imgur.com/wwEovSz.jpeg,https://i.imgur.com/hivDlJ4.jpeg,https://i.imgur.com/l4dvCMW.jpeg,https://i.imgur.com/kcWi69h.jpeg,https://i.imgur.com/VcWwfMb.jpeg,https://i.imgur.com/q3NUAOl.jpeg,https://i.imgur.com/5w15m4i.jpeg"
-                >CUESTA, Instituto Telearte, Santiago with Manuela Morales 2026</a>
+            <a href="open" class="hover-link"
+                data-gallery="https://i.imgur.com/Xk0sl8B.jpeg,https://i.imgur.com/2rjEZ37.jpeg,https://i.imgur.com/wwEovSz.jpeg,https://i.imgur.com/hivDlJ4.jpeg,https://i.imgur.com/l4dvCMW.jpeg,https://i.imgur.com/kcWi69h.jpeg,https://i.imgur.com/VcWwfMb.jpeg,https://i.imgur.com/q3NUAOl.jpeg,https://i.imgur.com/5w15m4i.jpeg">CUESTA,
+                Instituto Telearte, Santiago with Manuela Morales 2026</a>
             <img class="hover-image" src="https://i.imgur.com/Xk0sl8B.jpeg">
             <br><br>
-            
-                <a href="ginghamcarpet" class="hover-link"
-                data-gallery="https://i.imgur.com/Z95YuA0.jpeg,https://i.imgur.com/56vVuM9.jpeg,https://i.imgur.com/BZ0CgZh.jpeg,https://i.imgur.com/AohWoZj.jpeg,https://i.imgur.com/yC8wWJU.jpeg,https://i.imgur.com/5FAs8TQ.jpeg,https://i.imgur.com/1FqdH4F.jpeg"
-                >Untitled(Gingham Carpet), curated by Simmy Swinder, Basel 2025</a>
+            <a href="ginghamcarpet" class="hover-link"
+                data-gallery="https://i.imgur.com/Z95YuA0.jpeg,https://i.imgur.com/56vVuM9.jpeg,https://i.imgur.com/BZ0CgZh.jpeg,https://i.imgur.com/AohWoZj.jpeg,https://i.imgur.com/yC8wWJU.jpeg,https://i.imgur.com/5FAs8TQ.jpeg,https://i.imgur.com/1FqdH4F.jpeg">Untitled(Gingham
+                Carpet), curated by Simmy Swinder, Basel 2025</a>
             <img class="hover-image" src="https://i.imgur.com/Z95YuA0.jpeg">
             <br>
-            
             <a href="open" class="hover-link"
                 data-gallery="https://i.imgur.com/yd4W8yS.jpg,https://i.imgur.com/K7my6U3.jpg,https://i.imgur.com/r9WBdVV.jpg,https://i.imgur.com/UqdfSa3.jpg,https://i.imgur.com/J9mnx0R.jpg,https://i.imgur.com/xI7Rskh.jpg">OPEN,
                 Barsa, Barcelona 2025</a>
             <img class="hover-image" src="https://i.imgur.com/yd4W8yS.jpg" alt="PJxOU4.jpg">
             <br>
-       
             <a href="emptyinside" class="hover-link"
-                data-gallery="https://i.imgur.com/wsgRe5X.jpg,https://i.imgur.com/A3cPpOr.jpg,https://i.imgur.com/DZZn47m.jpg",https://i.imgur.com/GHpFOwM.jpg,https://i.imgur.com/S5o1iKL.jpg,https://i.imgur.com/I20DnKI.jpg,https://i.imgur.com/w5XODV1.jpg,https://i.imgur.com/GHpFOwM.jpg,https://i.imgur.com/S5o1iKL.jpg,https://i.imgur.com/LNbPIWE.jpg,https://i.imgur.com/CQuuxfw.jpg,https://i.imgur.com/WiIruWv.jpg,https://i.imgur.com/gMVkE9a.jpg,https://i.imgur.com/GCO4Ln5.jpg,https://i.imgur.com/w5XODV1.jpg >Empty Inside, Milieu, Bern, 2025</a>
+                data-gallery="https://i.imgur.com/wsgRe5X.jpg,https://i.imgur.com/A3cPpOr.jpg,https://i.imgur.com/DZZn47m.jpg"
+                ,https://i.imgur.com/GHpFOwM.jpg,https://i.imgur.com/S5o1iKL.jpg,https://i.imgur.com/I20DnKI.jpg,https://i.imgur.com/w5XODV1.jpg,https://i.imgur.com/GHpFOwM.jpg,https://i.imgur.com/S5o1iKL.jpg,https://i.imgur.com/LNbPIWE.jpg,https://i.imgur.com/CQuuxfw.jpg,https://i.imgur.com/WiIruWv.jpg,https://i.imgur.com/gMVkE9a.jpg,https://i.imgur.com/GCO4Ln5.jpg,https://i.imgur.com/w5XODV1.jpg>Empty
+                Inside, Milieu, Bern, 2025</a>
             <img class="hover-image" src="https://i.imgur.com/wsgRe5X.jpeg" alt="Image preview">
             <br>
-            
-               <a href="neutro" class="hover-link"
-                   data-gallery="https://i.imgur.com/Dl5648z.jpg,https://i.imgur.com/aiebaKf.jpg,https://i.imgur.com/rDJM9df.jpg,https://i.imgur.com/UM15wTf.jpg,https://i.imgur.com/GCLkETR.jpg">Neutro, Mae West, Lausanne with Manuela Morales, 2025 </a>
+            <a href="neutro" class="hover-link"
+                data-gallery="https://i.imgur.com/Dl5648z.jpg,https://i.imgur.com/aiebaKf.jpg,https://i.imgur.com/rDJM9df.jpg,https://i.imgur.com/UM15wTf.jpg,https://i.imgur.com/GCLkETR.jpg">Neutro,
+                Mae West, Lausanne with Manuela Morales, 2025 </a>
             <img class="hover-image" src="https://i.imgur.com/Dl5648z.jpeg">
             <br><br>
-
-             <a href="graciasshankyou" class="hover-link"
+            <a href="graciasshankyou" class="hover-link"
                 data-gallery="https://i.imgur.com/WWdx5P3.jpg,https://i.imgur.com/ZTv2TUp.jpg,https://i.imgur.com/1Lfx6jl.jpg,https://i.imgur.com/NtGLs1S.jpg,https://i.imgur.com/ZIu6VbL.jpg,https://i.imgur.com/ZIu6VbL.jpg">
                 Gracias, Thank you., Lokal-int, Biel with Manuela Morales 2024
             </a>
             <img class="hover-image" src="https://i.imgur.com/WWdx5P3.jpg" alt="Image preview">
             <br>
-
-
             <br><br>
-            
             <a href="purecore2016-2023" class="hover-link"
-                data-gallery="https://i.imgur.com/XZqXgEj.jpg,https://i.imgur.com/dvEaS4U.jpg,https://i.imgur.com/PlaCq5h.jpg,https://i.imgur.com/281kOMC.jpg">Purecore 2016-2023, RUF, Vienna, curated by Sebastian
+                data-gallery="https://i.imgur.com/XZqXgEj.jpg,https://i.imgur.com/dvEaS4U.jpg,https://i.imgur.com/PlaCq5h.jpg,https://i.imgur.com/281kOMC.jpg">Purecore
+                2016-2023, RUF, Vienna, curated by Sebastian
                 Schachinge 2023</a>
-            <img class="hover-image" src="https://i.imgur.com/XZqXgEj.jpg" alt="Image preview"> 
+            <img class="hover-image" src="https://i.imgur.com/XZqXgEj.jpg" alt="Image preview">
             <br>
-            
             <a href="zuvielehintergrund" class="hover-link"
-                data-gallery="https://i.imgur.com/yx8QZje.jpg,https://i.imgur.com/zHBMIB8.jpg,https://i.imgur.com/lR1xPpt.jpg,https://i.imgur.com/AS2TIFc.jpg,https://i.imgur.com/LcZQoFe.jpg,https://i.imgur.com/3ED6w44.jpg,https://i.imgur.com/9zV5zK8.jpg,">Zu Viele Hintergrund, Hirscheneck, Basel 2023</a>
+                data-gallery="https://i.imgur.com/yx8QZje.jpg,https://i.imgur.com/zHBMIB8.jpg,https://i.imgur.com/lR1xPpt.jpg,https://i.imgur.com/AS2TIFc.jpg,https://i.imgur.com/LcZQoFe.jpg,https://i.imgur.com/3ED6w44.jpg,https://i.imgur.com/9zV5zK8.jpg,">Zu
+                Viele Hintergrund, Hirscheneck, Basel 2023</a>
             <img class="hover-image" src="https://i.imgur.com/yx8QZje.jpg" alt="PJxOU4.jpg">
             <br><br>
-
             <a href="toomanywonderfulpeoplenotenoughbikes" class="hover-link"
-                data-gallery="https://i.imgur.com/3sDLM9K.jpg,https://i.imgur.com/LFzDTFa.jpg,https://i.imgur.com/5MQLQmO.jpg,https://i.imgur.com/3dBlweo.jpg,https://i.imgur.com/1kaaxo7.jpg,https://i.imgur.com/5TNSRuU.jpg">Too Many Wonderful People
+                data-gallery="https://i.imgur.com/3sDLM9K.jpg,https://i.imgur.com/LFzDTFa.jpg,https://i.imgur.com/5MQLQmO.jpg,https://i.imgur.com/3dBlweo.jpg,https://i.imgur.com/1kaaxo7.jpg,https://i.imgur.com/5TNSRuU.jpg">Too
+                Many Wonderful People
                 Not Enough Bikes, Mario Kreuzberg, Basel, with Manuela Morales, 2022</a>
             <img class="hover-image" src="https://i.imgur.com/3sDLM9K.jpg" alt="Image preview">
             <br>
             <a href="laespanavacia" class="hover-link"
-                data-gallery="https://i.imgur.com/HEEMZ7z.jpg,https://i.imgur.com/UepTsOD.jpg,https://i.imgur.com/nqoRbf8.jpg,https://i.imgur.com/VKwhQAa.jpg">La España Vacía, Palafrugell 2022</a>
+                data-gallery="https://i.imgur.com/HEEMZ7z.jpg,https://i.imgur.com/UepTsOD.jpg,https://i.imgur.com/nqoRbf8.jpg,https://i.imgur.com/VKwhQAa.jpg">La
+                España Vacía, Palafrugell 2022</a>
             <img class="hover-image" src="https://i.imgur.com/HEEMZ7z.jpg" alt="Image preview">
             <br>
-            
             <a href="filler" class="hover-link"
-                data-gallery="https://i.imgur.com/rQi8PDf.jpg,https://i.imgur.com/YuxKrE4.jpg,https://i.imgur.com/0wxVdxs.jpg,https://i.imgur.com/5ZBDFRP.jpg,https://i.imgur.com/rJLkwpE.jpg">Filler, Number 1 Mainroad, Berlin, curated by Tom Esam and Paul Ferens
+                data-gallery="https://i.imgur.com/rQi8PDf.jpg,https://i.imgur.com/YuxKrE4.jpg,https://i.imgur.com/0wxVdxs.jpg,https://i.imgur.com/5ZBDFRP.jpg,https://i.imgur.com/rJLkwpE.jpg">Filler,
+                Number 1 Mainroad, Berlin, curated by Tom Esam and Paul Ferens
                 2022</a>
             <img class="hover-image" src="https://i.imgur.com/rQi8PDf.jpg" alt="Image preview">
             <br>
             <a href="theholeworld" class="hover-link"
-                data-gallery="https://i.imgur.com/lrtiIfb.jpg,https://i.imgur.com/HEeF8Jt.jpg,https://i.imgur.com/fRFb3Pm.jpg,https://i.imgur.com/j2hdJUN.jpg,https://i.imgur.com/9jY2RDw.jpg,https://i.imgur.com/yWZqMJa.jpg">THE HOLE WORLD, Artemis Fontana, Paris, curated by Pauline
+                data-gallery="https://i.imgur.com/lrtiIfb.jpg,https://i.imgur.com/HEeF8Jt.jpg,https://i.imgur.com/fRFb3Pm.jpg,https://i.imgur.com/j2hdJUN.jpg,https://i.imgur.com/9jY2RDw.jpg,https://i.imgur.com/yWZqMJa.jpg">THE
+                HOLE WORLD, Artemis Fontana, Paris, curated by Pauline
                 Beaudemont 2022</a>
             <img class="hover-image" src="https://i.imgur.com/lrtiIfb.jpg" alt="Image preview">
             <br>
             <a href="hotellytissot" class="hover-link"
-                data-gallery="https://i.imgur.com/pjnmIpE.jpg,https://i.imgur.com/S49HyG5.jpg,https://i.imgur.com/jgiFHad.jpg,https://i.imgur.com/3Ah1j7A.jpg,https://i.imgur.com/vWMbMIJ.jpg,https://i.imgur.com/Q8uSIfX.jpg?1">Hotelly Tissot, Studio Kelly Tissot, Basel, with
+                data-gallery="https://i.imgur.com/pjnmIpE.jpg,https://i.imgur.com/S49HyG5.jpg,https://i.imgur.com/jgiFHad.jpg,https://i.imgur.com/3Ah1j7A.jpg,https://i.imgur.com/vWMbMIJ.jpg,https://i.imgur.com/Q8uSIfX.jpg?1">Hotelly
+                Tissot, Studio Kelly Tissot, Basel, with
                 Adam Szekeres, Photography by Kelly Tissot, 2022 </a>
             <img class="hover-image" src="https://i.imgur.com/pjnmIpE.jpg" alt="Image preview">
-                <br><br>
+            <br><br>
             <a href="masalla" class="hover-link"
-                data-gallery="https://i.imgur.com/zTlY70j.jpg,https://i.imgur.com/c2ojanp.jpg,https://i.imgur.com/Icdwnhf.jpg,https://i.imgur.com/MxBl5Ic.jpg,https://i.imgur.com/SMiWCKh.jpg,https://i.imgur.com/9Q2C4Bn.jpg,https://i.imgur.com/kGAXDYg.jpg,https://i.imgur.com/f3c1TWX.jpg,https://i.imgur.com/JgqTwvV.jpg,https://i.imgur.com/0qbATUs.jpg,https://i.imgur.com/WNt9ew9.jpg,https://i.imgur.com/CFDY5Fm.jpg">Más allá, Malpaís, Barcelona, curated by Joan Pallé 2021</a>
+                data-gallery="https://i.imgur.com/zTlY70j.jpg,https://i.imgur.com/c2ojanp.jpg,https://i.imgur.com/Icdwnhf.jpg,https://i.imgur.com/MxBl5Ic.jpg,https://i.imgur.com/SMiWCKh.jpg,https://i.imgur.com/9Q2C4Bn.jpg,https://i.imgur.com/kGAXDYg.jpg,https://i.imgur.com/f3c1TWX.jpg,https://i.imgur.com/JgqTwvV.jpg,https://i.imgur.com/0qbATUs.jpg,https://i.imgur.com/WNt9ew9.jpg,https://i.imgur.com/CFDY5Fm.jpg">Más
+                allá, Malpaís, Barcelona, curated by Joan Pallé 2021</a>
             <img class="hover-image" src="https://i.imgur.com/zTlY70j.jpg">
             <br>
-             <a href="hellenkeller" class="hover-link"
-                data-gallery="https://i.imgur.com/a13ycks.jpg,https://i.imgur.com/nXMg202.jpg,https://i.imgur.com/RVwVanO.jpg,https://i.imgur.com/XAOF5e8.jpg">HELLEN KELLER, Inklusive Arlesheim, Arlesheim 2021</a>
+            <a href="hellenkeller" class="hover-link"
+                data-gallery="https://i.imgur.com/a13ycks.jpg,https://i.imgur.com/nXMg202.jpg,https://i.imgur.com/RVwVanO.jpg,https://i.imgur.com/XAOF5e8.jpg">HELLEN
+                KELLER, Inklusive Arlesheim, Arlesheim 2021</a>
             <img class="hover-image" src="https://i.imgur.com/a13ycks.jpg">
             <br>
             <a href="thejoyofpainting" class="hover-link"
-                data-gallery="https://i.imgur.com/y90kp9V.jpg,https://i.imgur.com/hxn57lN.jpg,hhttps://i.imgur.com/1skkLiV.jpg,https://i.imgur.com/Y7dVyqy.jpg,https://i.imgur.com/yL9bmWc.jpg,https://i.imgur.com/bwRTEwZ.jpg,https://i.imgur.com/9dkuq0W.jpghttps://i.imgur.com/856JEna.jpg,https://i.imgur.com/AZOq3sw.jpg">The Joy of Painting. Deborah Bowmann,
+                data-gallery="https://i.imgur.com/y90kp9V.jpg,https://i.imgur.com/hxn57lN.jpg,hhttps://i.imgur.com/1skkLiV.jpg,https://i.imgur.com/Y7dVyqy.jpg,https://i.imgur.com/yL9bmWc.jpg,https://i.imgur.com/bwRTEwZ.jpg,https://i.imgur.com/9dkuq0W.jpghttps://i.imgur.com/856JEna.jpg,https://i.imgur.com/AZOq3sw.jpg">The
+                Joy of Painting. Deborah Bowmann,
                 Brussels, with Deborah Bowmann, 2021</a>
             <img class="hover-image" src="https://i.imgur.com/y90kp9V.jpg" alt="Image preview">
             <br>
-                <a href="whydoyouinvitemeifyouknowhowiget" class="hover-link"
-                    data-gallery="https://i.imgur.com/l1AfTz2.jpg,https://i.imgur.com/hx2RUrx.jpg">Why do you invite me when you
+            <a href="whydoyouinvitemeifyouknowhowiget" class="hover-link"
+                data-gallery="https://i.imgur.com/l1AfTz2.jpg,https://i.imgur.com/hx2RUrx.jpg">Why do you invite me when
+                you
                 know how I get?, Rheum Room, Basel, with Manuela Morales Délano, 2021</a>
             <img class="hover-image" src="https://i.imgur.com/n9XXvWp.jpg" alt="Image preview">
             <br>
             <br>
-            
             <a href="christmasgiftshop" class="hover-link"
-                data-gallery="https://i.imgur.com/vxW7YlO.jpg,https://i.imgur.com/KMMa8s8.jpg,https://i.imgur.com/2eOpGCE.jpg,https://i.imgur.com/HcalN4z.jpg,https://i.imgur.com/STSstJ9.jpg,https://i.imgur.com/iOvPh33.jpg">Christmas Gift Shop, Windhager von Kaenel, Zurich 2020</a>
+                data-gallery="https://i.imgur.com/vxW7YlO.jpg,https://i.imgur.com/KMMa8s8.jpg,https://i.imgur.com/2eOpGCE.jpg,https://i.imgur.com/HcalN4z.jpg,https://i.imgur.com/STSstJ9.jpg,https://i.imgur.com/iOvPh33.jpg">Christmas
+                Gift Shop, Windhager von Kaenel, Zurich 2020</a>
             <img class="hover-image" src="https://i.imgur.com/vxW7YlO.jpg" alt="Image preview">
             <br>
             <a href="notagain" class="hover-link"
-                data-gallery="https://i.imgur.com/5O055jE.jpg,https://i.imgur.com/lT0WwJY.jpg,https://i.imgur.com/jO0R7Kd.jpg,https://i.imgur.com/tEvmYnW.jpg,https://i.imgur.com/1Ao9Dg9.jpg">Not Again, Windhager von Kaenel, Zurich 2020</a>
+                data-gallery="https://i.imgur.com/5O055jE.jpg,https://i.imgur.com/lT0WwJY.jpg,https://i.imgur.com/jO0R7Kd.jpg,https://i.imgur.com/tEvmYnW.jpg,https://i.imgur.com/1Ao9Dg9.jpg">Not
+                Again, Windhager von Kaenel, Zurich 2020</a>
             <img class="hover-image" src="https://i.imgur.com/5O055jE.jpg" alt="Image preview">
             <br>
             <a href="36viewsofvolkspaarkhumboldthain" class="hover-link"
-                data-gallery="https://i.imgur.com/rw59brL.jpg,https://i.imgur.com/GqSUZR0.jpg,https://i.imgur.com/EzzPro1.jpg,https://i.imgur.com/a5g1XN3.jpg,https://i.imgur.com/heETpos.jpg,https://i.imgur.com/KHIIL6j.jpg,https://i.imgur.com/CkyP5FI.jpg">36 Views of Volkspark Humboldthain, Volkspark
+                data-gallery="https://i.imgur.com/rw59brL.jpg,https://i.imgur.com/GqSUZR0.jpg,https://i.imgur.com/EzzPro1.jpg,https://i.imgur.com/a5g1XN3.jpg,https://i.imgur.com/heETpos.jpg,https://i.imgur.com/KHIIL6j.jpg,https://i.imgur.com/CkyP5FI.jpg">36
+                Views of Volkspark Humboldthain, Volkspark
                 Humboldthain, Berlin 2020</a>
             <img class="hover-image" src="https://i.imgur.com/rw59brL.jpg" alt="Image preview">
             <br>
             <br>
-            
             <a href="pforeverything" class="hover-link"
-                data-gallery="https://i.imgur.com/mK0H9oj.jpg,https://i.imgur.com/OJvc2WL.jpg,https://i.imgur.com/HiKvmXe.jpg,https://i.imgur.com/sEh5AKA.jpg,https://i.imgur.com/9bT9qco.jpg,https://i.imgur.com/JGGUlzz.jpg,https://i.imgur.com/e13I3Zn.jpg">P for Everything, Kunsthalle Lissabon, Lisbon, curated by Samuel
+                data-gallery="https://i.imgur.com/mK0H9oj.jpg,https://i.imgur.com/OJvc2WL.jpg,https://i.imgur.com/HiKvmXe.jpg,https://i.imgur.com/sEh5AKA.jpg,https://i.imgur.com/9bT9qco.jpg,https://i.imgur.com/JGGUlzz.jpg,https://i.imgur.com/e13I3Zn.jpg">P
+                for Everything, Kunsthalle Lissabon, Lisbon, curated by Samuel
                 Leuenberge 2019</a>
             <img class="hover-image" src="https://i.imgur.com/mK0H9oj.jpg" alt="Image preview">
             <br>
             <a href="nouvellevougue" class="hover-link"
-                data-gallery="https://i.imgur.com/A6aXma9.jpg,https://i.imgur.com/5fi5iHZ.jpg,https://i.imgur.com/4nMimn1.jpg,https://i.imgur.com/TBN7XDy.jpg,https://i.imgur.com/OQBEVoz.jpg">Nouvelle Vogue, Mommsen35, Berlin, curated by Manuela Morales
+                data-gallery="https://i.imgur.com/A6aXma9.jpg,https://i.imgur.com/5fi5iHZ.jpg,https://i.imgur.com/4nMimn1.jpg,https://i.imgur.com/TBN7XDy.jpg,https://i.imgur.com/OQBEVoz.jpg">Nouvelle
+                Vogue, Mommsen35, Berlin, curated by Manuela Morales
                 2019</a>
             <img class="hover-image" src="https://i.imgur.com/A6aXma9.jpg" alt="Image preview">
             <br><br>
             <a href="notoldnotnew" class="hover-link"
-                data-gallery="https://i.imgur.com/8z8bXvu.jpg,https://i.imgur.com/COeMDhL.jpg,https://i.imgur.com/38phG1z.jpg,https://i.imgur.com/NXVXT0m.jpg,https://i.imgur.com/nsixpnS.jpg,https://i.imgur.com/UI0NdpE.jpg">Not Old Not New, Salts, Birsfelden, curated by Samuel Leuenberger
+                data-gallery="https://i.imgur.com/8z8bXvu.jpg,https://i.imgur.com/COeMDhL.jpg,https://i.imgur.com/38phG1z.jpg,https://i.imgur.com/NXVXT0m.jpg,https://i.imgur.com/nsixpnS.jpg,https://i.imgur.com/UI0NdpE.jpg">Not
+                Old Not New, Salts, Birsfelden, curated by Samuel Leuenberger
                 and Elise Lammer, 2018</a>
             <img class="hover-image" src="https://i.imgur.com/8z8bXvu.jpg" alt="Image preview">
             <br>
             <a href="eternalnewdaymuseum" class="hover-link"
-                data-gallery="https://i.imgur.com/jUz4l2W.jpg,https://i.imgur.com/DAWEORv.jpg">Eternal New Day Museum, Palafrugell, 2018</a>
+                data-gallery="https://i.imgur.com/jUz4l2W.jpg,https://i.imgur.com/DAWEORv.jpg">Eternal New Day Museum,
+                Palafrugell, 2018</a>
             <img class="hover-image" src="https://i.imgur.com/jUz4l2W.jpg" alt="Image preview">
             <br>
             <br>
-            
             <a href="somoslosmejoresporquellaamaarlaatencioneslomejor" class="hover-link"
-                data-gallery="https://i.imgur.com/yM0rvSA.jpg,https://i.imgur.com/uMize8O.jpg,https://i.imgur.com/vybspYT.jpg,https://i.imgur.com/hTY5eqg.jpg,https://i.imgur.com/yQQ6j2v.jpg">Somos Los
+                data-gallery="https://i.imgur.com/yM0rvSA.jpg,https://i.imgur.com/uMize8O.jpg,https://i.imgur.com/vybspYT.jpg,https://i.imgur.com/hTY5eqg.jpg,https://i.imgur.com/yQQ6j2v.jpg">Somos
+                Los
                 Mejores Porque Llamar La Atención Es Lo Mejor, Palafrugell, with Manuela Morales, 2017</a>
             <img class="hover-image" src="https://i.imgur.com/yM0rvSA.jpg" alt="Image preview">
             <br>
             <a href="puta" class="hover-link"
-                data-gallery="https://i.imgur.com/GrEfe0i.jpg,https://i.imgur.com/NiRAEFW.jpg">PUTA, Palafrugell, 2017</a>
+                data-gallery="https://i.imgur.com/GrEfe0i.jpg,https://i.imgur.com/NiRAEFW.jpg">PUTA, Palafrugell,
+                2017</a>
             <img class="hover-image" src="https://i.imgur.com/GrEfe0i.jpg" alt="Image preview">
             <br>
             <br>
-            
             <a href="beaingabetterperson" class="hover-link"
-                data-gallery="https://i.imgur.com/zB55mUo.jpg,https://i.imgur.com/REJUWJg.jpg,https://i.imgur.com/p9hmMFE.jpg">Being a Better Person (and Possibly Helping
+                data-gallery="https://i.imgur.com/zB55mUo.jpg,https://i.imgur.com/REJUWJg.jpg,https://i.imgur.com/p9hmMFE.jpg">Being
+                a Better Person (and Possibly Helping
                 Others), Gallery Mario Kreuzberg, Berlin, with Pablo Fernandez, 2016</a>
             <img class="hover-image" src="https://i.imgur.com/REJUWJg.jpg" alt="Image preview">
             <br>
             <a href="systemofpainting" class="hover-link"
-                data-gallery="]https://i.imgur.com/Pc3Is1w.jpg,https://i.imgur.com/JjYByxO.jpg,https://i.imgur.com/3pLAFpp.jpg,https://i.imgur.com/XYBrEPQ.jpg,https://i.imgur.com/pC5nGGE.jpg,https://i.imgur.com/R0gKA3w.jpg,https://i.imgur.com/dSCAJS1.jpg">System of Painting That Will Work Forever Dinner, New Day
+                data-gallery="]https://i.imgur.com/Pc3Is1w.jpg,https://i.imgur.com/JjYByxO.jpg,https://i.imgur.com/3pLAFpp.jpg,https://i.imgur.com/XYBrEPQ.jpg,https://i.imgur.com/pC5nGGE.jpg,https://i.imgur.com/R0gKA3w.jpg,https://i.imgur.com/dSCAJS1.jpg">System
+                of Painting That Will Work Forever Dinner, New Day
                 Gallery, Berlin, 2016</a>
             <img class="hover-image" src="https://i.imgur.com/Pc3Is1w.jpg" alt="Image preview">
         </div>
-
-
-        
         <!-- Group Projects -->
         <div id="group-projects" style="margin-top: 50px;">
             <div class="hover-link group-link" style="margin-bottom: 20px;">GROUP</div>
-             <a href="writingonanewleaf" class="hover-link group-link"
-                 data-gallery="https://i.imgur.com/99ykQjI.jpg,https://i.imgur.com/KEqdQDs.jpg,https://i.imgur.com/E9wRSge.jpg,https://i.imgur.com/KEqdQDs.jpghttps://i.imgur.com/0ceuHKT.jpg,https://i.imgur.com/vH8ebLK.jpg,https://i.imgur.com/AiGfGD3.jpg,">2025 Writing on a new leaf, Kunstverein Germersheim</a>
+            <a href="writingonanewleaf" class="hover-link group-link"
+                data-gallery="https://i.imgur.com/99ykQjI.jpg,https://i.imgur.com/KEqdQDs.jpg,https://i.imgur.com/E9wRSge.jpg,https://i.imgur.com/KEqdQDs.jpghttps://i.imgur.com/0ceuHKT.jpg,https://i.imgur.com/vH8ebLK.jpg,https://i.imgur.com/AiGfGD3.jpg,">2025
+                Writing on a new leaf, Kunstverein Germersheim</a>
             <img class="hover-image" src="https://i.imgur.com/KEqdQDs.jpeg" alt="Image preview">
             <br>
             <br>
             <a href="leaveahello" class="hover-link group-link"
-                data-gallery="https://i.imgur.com/4rM0U5I.jpg,https://i.imgur.com/fD0nqCi.jpg,https://i.imgur.com/1n4iitd.jpg,">2023 Leave a Hello, Kunsthalle Basel, Group exhibition
+                data-gallery="https://i.imgur.com/4rM0U5I.jpg,https://i.imgur.com/fD0nqCi.jpg,https://i.imgur.com/1n4iitd.jpg,">2023
+                Leave a Hello, Kunsthalle Basel, Group exhibition
                 curated by Ines Tondar</a>
             <img class="hover-image" src="https://i.imgur.com/4rM0U5I.jpg" alt="Image preview">
             <br><br>
             <a href="thefridgeshow" class="hover-link group-link"
-                data-gallery="https://i.imgur.com/p0cIxnH.jpg,https://i.imgur.com/4OOoVck.jpg,https://i.imgur.com/xGILpEM.jpg">2022 The Fridge Show, Pallazina, Basel, group
+                data-gallery="https://i.imgur.com/p0cIxnH.jpg,https://i.imgur.com/4OOoVck.jpg,https://i.imgur.com/xGILpEM.jpg">2022
+                The Fridge Show, Pallazina, Basel, group
                 exhibition</a>
             <img class="hover-image" src="https://i.imgur.com/p0cIxnH.jpg" alt="Image preview">
             <br>
             <a href="webelongtoeachother" class="hover-link group-link"
-                data-gallery="https://i.imgur.com/dfCvsyc.jpg,https://i.imgur.com/Hhffm75.jpg,https://i.imgur.com/0WSza2l.jpg">2022 We Belong To Eachother, Carlier Gebauer
+                data-gallery="https://i.imgur.com/dfCvsyc.jpg,https://i.imgur.com/Hhffm75.jpg,https://i.imgur.com/0WSza2l.jpg">2022
+                We Belong To Eachother, Carlier Gebauer
                 curated by Chus Martinez, Berlin, Group exhibition</a>
             <img class="hover-image" src="https://i.imgur.com/dfCvsyc.jpg" alt="Image preview">
             <br>
-            <a href="#" class="hover-link group-link"
-                data-gallery="https://i.imgur.com/sr80kuQ.jpg">2022 Hobby Lobby, HGK MA Graduation show, Basel</a>
+            <a href="#" class="hover-link group-link" data-gallery="https://i.imgur.com/sr80kuQ.jpg">2022 Hobby Lobby,
+                HGK MA Graduation show, Basel</a>
             <img class="hover-image" src="https://i.imgur.com/sr80kuQ.jpg" alt="Image preview">
             <br>
-                <br><br>
-            <a href="thesunalsorises" class="hover-link group-link"
-                data-gallery="https://i.imgur.com/UJXVfHs.jpg">2021 The Sun Also Rises, Everyday Gallery, Antwerp,
+            <br><br>
+            <a href="thesunalsorises" class="hover-link group-link" data-gallery="https://i.imgur.com/UJXVfHs.jpg">2021
+                The Sun Also Rises, Everyday Gallery, Antwerp,
                 Group exhibition curated by Leo Lopez</a>
             <img class="hover-image" src="https://i.imgur.com/UJXVfHs.jpg" alt="Image preview">
             <br>
             <a href="planetorsimanirana" class="hover-link group-link"
-                data-gallery="https://i.imgur.com/QdbMuNJ.jpg,https://i.imgur.com/8OPkxkr.jpg,https://i.imgur.com/lcKyyH7.jpg">2021 Life on Planet Orsimanirana curated by Jerzy
+                data-gallery="https://i.imgur.com/QdbMuNJ.jpg,https://i.imgur.com/8OPkxkr.jpg,https://i.imgur.com/lcKyyH7.jpg">2021
+                Life on Planet Orsimanirana curated by Jerzy
                 Seymour at MKG Hamburg, with Lee Scratch Perry</a>
             <img class="hover-image" src="https://i.imgur.com/QdbMuNJ.jpg" alt="Image preview">
             <br><br>
             <a href="euroneumode" class="hover-link group-link"
-                data-gallery="https://i.imgur.com/uExFcTg.jpg,https://i.imgur.com/o9PFMXa.jpg,https://i.imgur.com/DVgzR2F.jpg,https://i.imgur.com/mhEst9O.jpg">2020 EURO NEU MODE, Everyday Gallery, Antwerp, wih Paul
+                data-gallery="https://i.imgur.com/uExFcTg.jpg,https://i.imgur.com/o9PFMXa.jpg,https://i.imgur.com/DVgzR2F.jpg,https://i.imgur.com/mhEst9O.jpg">2020
+                EURO NEU MODE, Everyday Gallery, Antwerp, wih Paul
                 Ferens curated by Leo Lopez</a>
             <img class="hover-image" src="https://i.imgur.com/uExFcTg.jpg" alt="Image preview">
             <br><br>
             <a href="megustaperomeasusta" class="hover-link group-link"
-                data-gallery="https://i.imgur.com/Vaz4kLU.jpg,https://i.imgur.com/JBg0dqs.jpg,https://i.imgur.com/G96nDaU.jpg,https://i.imgur.com/jFOVQgA.jpg,https://i.imgur.com/af9ufay.jpg">2018 Me Gusta Pero Me Asusta, Gallery Mario
+                data-gallery="https://i.imgur.com/Vaz4kLU.jpg,https://i.imgur.com/JBg0dqs.jpg,https://i.imgur.com/G96nDaU.jpg,https://i.imgur.com/jFOVQgA.jpg,https://i.imgur.com/af9ufay.jpg">2018
+                Me Gusta Pero Me Asusta, Gallery Mario
                 Kreuzberg, Berlin, with Octavio Garabello curated by Manuela Morales</a>
             <img class="hover-image" src="https://i.imgur.com/Vaz4kLU.jpg" alt="Image preview">
             <br>
             <br>
             <a href="baanaanasbananasbananasbananas" class="hover-link group-link"
-                data-gallery="https://i.imgur.com/yd4W8yS.jpg,https://i.imgur.com/KEqdQDs.jpeg,https://i.imgur.com/wsgRe5X.jpeg">2017 BANANAS BANANAS BANANAS BANANAS,
+                data-gallery="https://i.imgur.com/yd4W8yS.jpg,https://i.imgur.com/KEqdQDs.jpeg,https://i.imgur.com/wsgRe5X.jpeg">2017
+                BANANAS BANANAS BANANAS BANANAS,
                 New Day Gallery, Berlin, with Paul Ferens</a>
             <img class="hover-image" src="https://i.imgur.com/NyfrE5b.jpg" alt="Image preview">
             <br>
             <a href="somoslosmejoresporquellaamaarlaatencioneslomejor" class="hover-link group-link"
-                data-gallery="https://i.imgur.com/yd4W8yS.jpg,https://i.imgur.com/KEqdQDs.jpeg,https://i.imgur.com/wsgRe5X.jpeg">2017 Somos Los
+                data-gallery="https://i.imgur.com/yd4W8yS.jpg,https://i.imgur.com/KEqdQDs.jpeg,https://i.imgur.com/wsgRe5X.jpeg">2017
+                Somos Los
                 Mejores Porque Llamar La Atención Es Lo Mejor, Palafrugell, with Manuela Morales</a>
             <img class="hover-image" src="https://i.imgur.com/yM0rvSA.jpg" alt="Image preview">
             <br><br>
             <a href="beaingabetterperson" class="hover-link group-link"
-                data-gallery="https://i.imgur.com/yd4W8yS.jpg,https://i.imgur.com/KEqdQDs.jpeg,https://i.imgur.com/wsgRe5X.jpeg">2016 Being a Better Person (and Possibly Helping
+                data-gallery="https://i.imgur.com/yd4W8yS.jpg,https://i.imgur.com/KEqdQDs.jpeg,https://i.imgur.com/wsgRe5X.jpeg">2016
+                Being a Better Person (and Possibly Helping
                 Others), Gallery Mario Kreuzberg, Berlin, with Pablo Fernandez</a>
             <img class="hover-image" src="https://i.imgur.com/REJUWJg.jpg" alt="Image preview">
         </div>
@@ -365,14 +387,13 @@
             links.forEach(link => {
                 link.addEventListener('click', (e) => {
                     e.preventDefault(); // Stop navigation
-                    
                     const img = link.nextElementSibling;
                     const galleryData = link.getAttribute('data-gallery');
                     currentImages = [];
                     // 1. Try to get images from data-gallery
                     if (galleryData) {
                         currentImages = galleryData.split(',').map(url => url.trim());
-                    } 
+                    }
                     // 2. Fallback: Use the single preview image as a 1-item loop
                     else if (img && img.tagName === 'IMG' && img.classList.contains('hover-image')) {
                         currentImages = [img.src];
@@ -380,7 +401,6 @@
                     if (currentImages.length > 0) {
                         currentIndex = 0;
                         updateViewer();
-                        
                         // Show viewer, hide content
                         viewer.classList.add('active');
                         body.classList.add('viewing-mode');
