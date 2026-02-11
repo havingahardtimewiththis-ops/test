@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Charles Benjamin - Texts</title>
+    <link rel="shortcut icon" type="image/png" href="https://a.imge.to/2019/06/29/gD8YY.png">
+    <style>
+        body {
+            font-family: "Baskerville", serif;
+            font-style: italic;
+            background-color: #f8f8f8;
+            font-size: clamp(0.9rem, 2vw, 1.15rem);
+            z-index: 1001;
+            color: #000;
+            margin: 10px;
+        }
+        /* Navigation Links (Right aligned as per original, or shared) */
+        .nav-row {
+            text-align: right;
+            padding-right: 10px;
+        }
+        /* Texts Links - LEFT ALIGNED (Same as Works) */
+        .hover-link {
+            display: block;
+            text-align: left;
+            color: #000;
+            text-decoration: none;
+            position: relative;
+            font-size: clamp(0.9rem, 2vw, 1.15rem);
+            z-index: 1001;
+            cursor: pointer;
+            margin-bottom: -10px;
+            margin-left: 0;
+        }
+        .hover-image {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-height: 80vh;
+            max-width: 75%;
+            /* Natural size fix */
+            width: auto;
+            height: auto;
+            border: 0;
+            background: #f8f8f8;
+            z-index: 1000;
+            padding: 0;
+            pointer-events: none;
+        }
+        .hover-link:hover+.hover-image {
+            display: block;
+        }
+        @media (max-width: 600px) {
+            .hover-link {
+                font-size: 0.20rem;
+                white-space: normal;
+            }
+            .hover-image {
+                position: static;
+                display: block !important;
+                width: 30%;
+                margin: 100px 0;
+            }
+        }
+    </style>
+</head>
+<body bgcolor="FFFFFF" text="grey" link="#000000" vlink="#000000" alink="#000000">
+    <div class="content-wrapper">
+        <!-- Navigation -->
+        <div class="nav-row">
+            <i>
+                <a style="text-decoration: none; color:black; font-style: italic;" href="index.html"
+                    target="_self">Exhibitions</a>&nbsp;&nbsp;
+                <a style="text-decoration: none; color:black;" href="works.html" target="_self">Works</a>&nbsp;&nbsp;
+                <a style="text-decoration: none; color:black;" href="souvenirgiftshop"
+                    target="_self">Giftshop</a>&nbsp;&nbsp;
+                &nbsp;&nbsp;<a style="text-decoration: underline; color:black;" href="text"
+                    target="_self">Texts/publication</a>&nbsp;&nbsp;
+                <a style=" text-decoration: none; color:black;" href="contact" target="_self"><span
+                        style="color:black">Contact</span></a>
+                &nbsp;&nbsp;<a style="text-decoration: none; color:black;" href="http:\\www.mariokreuzberg.com"
+                    target="_self">Mario Kreuzberg</a>&nbsp;&nbsp;
+            </i>
+        </div>
+        <p />
+        <br><br>
+        <!-- TEXTS LIST -->
+        <!-- Placeholder 1 -->
+        <a class="hover-link" href="#" target="_blank">
+            Text Title One, Publication, 2025
+        </a>
+        <img class="hover-image" src="https://i.imgur.com/gD8YY.png" alt="Preview of Text 1">
+        <br>
+        <!-- Placeholder 2 -->
+        <a class="hover-link" href="#" target="_blank">
+            Text Title Two, Magazine, 2024
+        </a>
+        <img class="hover-image" src="https://i.imgur.com/gD8YY.png" alt="Preview of Text 2">
+        <br>
+        <!-- Placeholder 3 -->
+        <a class="hover-link" href="#" target="_blank">
+            Interview with Charles Benjamin, Art Blog, 2023
+        </a>
+        <img class="hover-image" src="https://i.imgur.com/gD8YY.png" alt="Preview of Text 3">
+        <br>
+    </div>
+</body>
+</html>
