@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Charles Benjamin - Texts</title>
+    <link rel="shortcut icon" type="image/png" href="https://a.imge.to/2019/06/29/gD8YY.png">
+    <style>
+        body {
+            font-family: "Baskerville", serif;
+            font-style: italic;
+            background-color: #f8f8f8;
+            font-size: clamp(0.9rem, 2vw, 1.15rem);
+            z-index: 1001;
+            color: #000;
+            margin: 10px;
+        }
+        /* Navigation Links (Right aligned as per original, or shared) */
+        .nav-row {
+            text-align: right;
+            padding-right: 10px;
+        }
+        /* Texts Links - LEFT ALIGNED (Exact copy of Works page styles) */
+        .hover-link {
+            display: block;
+            text-align: left;
+            color: #000;
+            text-decoration: none;
+            position: relative;
+            font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+            z-index: 1001;
+            cursor: pointer;
+            margin-bottom: -10px;
+            margin-left: 0;
+        }
+        /* Image Display Logic */
+        .hover-image {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-height: 80vh;
+            max-width: 75%;
+            /* Natural size fix applied */
+            width: auto;
+            height: auto;
+            border: 0;
+            background: #f8f8f8;
+            z-index: 1000;
+            padding: 0;
+            pointer-events: none;
+        }
+        /* Show image on hover */
+        .hover-link:hover+.hover-image {
+            display: block;
+        }
+        @media (max-width: 600px) {
+            .hover-link {
+                font-size: 1.2rem;
+                white-space: normal;
+            }
+            .hover-image {
+                position: static;
+                display: block !important;
+                width: 30%;
+                margin: 100px 0;
+            }
+        }
+    </style>
+</head>
+<body bgcolor="FFFFFF" text="grey" link="#000000" vlink="#000000" alink="#000000">
+    <div class="content-wrapper">
+        <!-- Navigation -->
+        <div class="nav-row">
+            <i>
+                <a style="text-decoration: none; color:black; font-style: italic;" href="index.html"
+                    target="_self">Exhibitions</a>&nbsp;&nbsp;
+                <a style="text-decoration: none; color:black;" href="works.html" target="_self">Works</a>&nbsp;&nbsp;
+                <a style="text-decoration: none; color:black;" href="souvenirgiftshop.html"
+                    target="_self">Giftshop</a>&nbsp;&nbsp;
+                &nbsp;&nbsp;<a style="text-decoration: underline; color:black;" href="text.html"
+                    target="_self">Texts/publication</a>&nbsp;&nbsp;
+                <a style=" text-decoration: none; color:black;" href="contact" target="_self"><span
+                        style="color:black">Contact</span></a>
+                &nbsp;&nbsp;<a style="text-decoration: none; color:black;" href="http://www.mariokreuzberg.com"
+                    target="_self">Mario Kreuzberg</a>&nbsp;&nbsp;
+            </i>
+        </div>
+        <p />
+        <br><br>
+        <!-- TEXTS LIST -->
+        <!-- Example 1 -->
+        <a class="hover-link" href="#" target="_blank">
+            Text Title One, Publication, 2025
+        </a>
+        <img class="hover-image" src="https://i.imgur.com/gD8YY.png" alt="Preview">
+        <br>
+        <!-- Example 2 -->
+        <a class="hover-link" href="#" target="_blank">
+            Text Title Two, Magazine, 2024
+        </a>
+        <img class="hover-image" src="https://i.imgur.com/gD8YY.png" alt="Preview">
+        <br>
+        <!-- Example 3 -->
+        <a class="hover-link" href="#" target="_blank">
+            Interview with Charles Benjamin, Art Blog, 2023
+        </a>
+        <img class="hover-image" src="https://i.imgur.com/gD8YY.png" alt="Preview">
+        <br>
+    </div>
+</body>
+</html>
