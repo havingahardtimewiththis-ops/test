@@ -19,19 +19,20 @@
             text-align: right;
             padding-right: 10px;
         }
-        /* Texts Links - LEFT ALIGNED (Same as Works) */
+        /* Texts Links - LEFT ALIGNED (Exact copy of Works page styles) */
         .hover-link {
             display: block;
             text-align: left;
             color: #000;
             text-decoration: none;
             position: relative;
-            font-size: clamp(0.9rem, 2vw, 1.15rem);
+            font-size: clamp(1.2rem, 2.5vw, 1.6rem);
             z-index: 1001;
             cursor: pointer;
             margin-bottom: -10px;
             margin-left: 0;
         }
+        /* Image Display Logic */
         .hover-image {
             display: none;
             position: fixed;
@@ -40,7 +41,7 @@
             transform: translate(-50%, -50%);
             max-height: 80vh;
             max-width: 75%;
-            /* Natural size fix */
+            /* Natural size fix applied */
             width: auto;
             height: auto;
             border: 0;
@@ -49,12 +50,13 @@
             padding: 0;
             pointer-events: none;
         }
+        /* Show image on hover */
         .hover-link:hover+.hover-image {
             display: block;
         }
         @media (max-width: 600px) {
             .hover-link {
-                font-size: 0.20rem;
+                font-size: 1.2rem;
                 white-space: normal;
             }
             .hover-image {
@@ -87,23 +89,23 @@
         <p />
         <br><br>
         <!-- TEXTS LIST -->
-        <!-- Placeholder 1 -->
+        <!-- Example 1 -->
         <a class="hover-link" href="#" target="_blank">
             Text Title One, Publication, 2025
         </a>
-        <img class="hover-image" src="https://i.imgur.com/gD8YY.png" alt="Preview of Text 1">
+        <img class="hover-image" src="https://i.imgur.com/gD8YY.png" alt="Preview">
         <br>
-        <!-- Placeholder 2 -->
+        <!-- Example 2 -->
         <a class="hover-link" href="#" target="_blank">
             Text Title Two, Magazine, 2024
         </a>
-        <img class="hover-image" src="https://i.imgur.com/gD8YY.png" alt="Preview of Text 2">
+        <img class="hover-image" src="https://i.imgur.com/gD8YY.png" alt="Preview">
         <br>
-        <!-- Placeholder 3 -->
+        <!-- Example 3 -->
         <a class="hover-link" href="#" target="_blank">
             Interview with Charles Benjamin, Art Blog, 2023
         </a>
-        <img class="hover-image" src="https://i.imgur.com/gD8YY.png" alt="Preview of Text 3">
+        <img class="hover-image" src="https://i.imgur.com/gD8YY.png" alt="Preview">
         <br>
     </div>
 </body>
