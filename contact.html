@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Charles Benjamin - Contact</title>
+    <link rel="shortcut icon" type="image/png" href="https://a.imge.to/2019/06/29/gD8YY.png">
+    <style>
+        body {
+            font-family: "Baskerville", serif;
+            font-style: italic;
+            background-color: #f8f8f8;
+            font-size: clamp(0.9rem, 2vw, 1.15rem);
+            z-index: 1001;
+            color: #000;
+            margin: 10px;
+            height: 98vh;
+            /* Ensure body takes full height for split layout */
+            display: flex;
+            flex-direction: column;
+        }
+        /* Navigation Links */
+        .nav-row {
+            text-align: right;
+            padding-right: 10px;
+            flex-shrink: 0;
+            /* Don't shrink nav */
+        }
+        /* Split Layout Container */
+        .content-wrapper {
+            display: flex;
+            flex: 1;
+            /* Take remaining height */
+            align-items: center;
+            /* Center vertically */
+            justify-content: center;
+            height: 100%;
+        }
+        .left-pane {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            /* Align image to the right of this pane (center of screen) */
+            padding-right: 40px;
+            height: 100%;
+        }
+        .right-pane {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            /* Align text to the left */
+            padding-left: 40px;
+            height: 100%;
+            font-size: 1.2rem;
+        }
+        #contact-img {
+            max-height: 70vh;
+            max-width: 90%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            cursor: pointer;
+            /* Click to change? */
+        }
+        @media (max-width: 768px) {
+            .content-wrapper {
+                flex-direction: column;
+            }
+            .left-pane,
+            .right-pane {
+                width: 100%;
+                padding: 0;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+            }
+            .left-pane {
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body bgcolor="FFFFFF" text="grey" link="#000000" vlink="#000000" alink="#000000">
+    <!-- Navigation -->
+    <div class="nav-row">
+        <i>
+            <a style="text-decoration: none; color:black; font-style: italic;" href="index.html"
+                target="_self">Exhibitions</a>&nbsp;&nbsp;
+            <a style="text-decoration: none; color:black;" href="works.html" target="_self">Works</a>&nbsp;&nbsp;
+            <a style="text-decoration: none; color:black;" href="souvenirgiftshop.html"
+                target="_self">Giftshop</a>&nbsp;&nbsp;
+            &nbsp;&nbsp;<a style="text-decoration: none; color:black;" href="texts.html"
+                target="_self">Texts/publication</a>&nbsp;&nbsp;
+            <a style="text-decoration: underline; color:black;" href="contact.html" target="_self"><span
+                    style="color:black">Contact</span></a>
+            &nbsp;&nbsp;<a style="text-decoration: none; color:black;" href="http://www.mariokreuzberg.com"
+                target="_self">Mario Kreuzberg</a>&nbsp;&nbsp;
+        </i>
+    </div>
+    <!-- Main Split Viewer -->
+    <div class="content-wrapper">
+        <div class="left-pane">
+            <img id="contact-img" src="" alt="Contact Image">
+        </div>
+        <div class="right-pane">
+            <p><strong>Charles Benjamin</strong></p>
+            <p><a href="mailto:contact@charlesbenjamin.com"
+                    style="text-decoration: none; color: black;">contact@charlesbenjamin.com</a></p>
+            <br>
+            <p>Follow on Instagram:</p>
+            <p><a href="#" style="text-decoration: underline; color: black;">@charlesbenjamin</a></p>
+            <br>
+            <p>Gallery Representation:</p>
+            <p>Mario Kreuzberg<br>Berlin</p>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Basic list of images to shuffle (reusing some from giftshop/works as placeholders)
+            const images = [
+                "https://i.imgur.com/DbdfBdx.jpg",
+                "https://i.imgur.com/tcxg5wU.jpg",
+                "https://i.imgur.com/Mio05O6.png",
+                "https://i.imgur.com/msexgRR.jpg?1",
+                "https://i.imgur.com/TS0f5J8.png"
+            ];
+            const imgEl = document.getElementById('contact-img');
+            function showRandomImage() {
+                const randomIndex = Math.floor(Math.random() * images.length);
+                imgEl.src = images[randomIndex];
+            }
+            // Initialize
+            showRandomImage();
+            // Click Image -> Show another random
+            imgEl.addEventListener('click', showRandomImage);
+        });
+    </script>
+</body>
+</html>
