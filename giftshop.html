@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <title>Charles Benjamin - Souvenir Gift Shop</title>
@@ -16,14 +15,12 @@
             color: #000;
             margin: 10px;
         }
-
         /* Navigation (Shared) */
         .nav-row {
             text-align: right;
             padding-right: 10px;
             margin-bottom: 20px;
         }
-
         /* Grid Container */
         .shop-grid {
             position: relative;
@@ -32,7 +29,6 @@
             margin: 0 auto;
             /* Height will be set via JS based on absolute positioning */
         }
-
         /* Product Item */
         .product-item {
             position: absolute;
@@ -52,23 +48,21 @@
             padding: 5px;
             z-index: 1;
         }
-
         .product-item.active {
+            z-index: 20;
+        }
+        .product-item.neighbor {
             z-index: 10;
         }
-
-        .product-item.neighbor {
-            z-index: 2;
-        }
-
         .product-img {
             width: 100%;
-            flex-grow: 1;
-            /* object-fit: fill distorts it. object-fit: cover crops it.
-               The user asked to "distort" surrounding pictures "as if squeezed". */
-            object-fit: fill;
+            height: calc(100% - 90px);
+            /* Strictly constrain height to leave room for text + margin */
+            object-fit: contain;
+            /* Maintain natural aspect ratio without distorting */
+            display: block;
+            /* prevent phantom spacing under image */
         }
-
         .shop-info {
             font-family: "Baskerville", serif;
             font-style: italic;
@@ -84,13 +78,10 @@
             /* transition opacity to hide text of squeezed items for cleaner look */
             transition: opacity 0.3s;
         }
-
-        /* Hide text on heavily squeezed neighbors to focus on image distortion */
         .product-item.squeezed .shop-info {
-            opacity: 0;
-            pointer-events: none;
+            opacity: 1;
+            /* User requested they don't disappear */
         }
-
         .shop-desc {
             margin: 0 0 5px 0;
             font-size: 1.1rem;
@@ -99,7 +90,6 @@
             text-overflow: ellipsis;
             width: 100%;
         }
-
         .shop-price-row {
             margin: 0 0 5px 0;
             display: flex;
@@ -111,21 +101,17 @@
             text-overflow: ellipsis;
             width: 100%;
         }
-
         .shop-price {
-            font-weight: bold;
+            font-weight: normal;
         }
-
         .shop-sold {
             color: red;
             font-weight: bold;
             display: none;
         }
-
         .shop-sold.visible {
             display: inline;
         }
-
         .request-btn {
             display: inline-block;
             text-decoration: underline;
@@ -137,13 +123,11 @@
             text-overflow: ellipsis;
             max-width: 100%;
         }
-
         .request-btn:hover {
             text-decoration: none;
         }
     </style>
 </head>
-
 <body bgcolor="FFFFFF" text="grey" link="#000000" vlink="#000000" alink="#000000">
     <!-- Navigation -->
     <div class="nav-row">
@@ -164,10 +148,8 @@
                 target="_self">Hellen Keller</a>&nbsp;&nbsp;
         </i>
     </div>
-
     <!-- Main Shop Viewer -->
     <div id="shop-container"></div>
-
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             // Provided product data
@@ -189,7 +171,7 @@
                 { id: 15, src: "https://i.imgur.com/IVt04tb.jpg", desc: "Item 15 Description", price: "100 CHF", sold: false },
                 { id: 16, src: "https://i.imgur.com/h4wLOLD.jpg", desc: "Item 16 Description", price: "150 CHF", sold: true },
                 { id: 17, src: "https://i.imgur.com/5CZKkqy.jpg", desc: "Item 17 Description", price: "200 CHF", sold: false },
-                { id: 18, src: "https://i.imgur.com/ArEDSRq.jpg", desc: "Item 18 Description", price: "120 CHF", sold: false },
+                { id: 18, src: "https://imgur.com/wq7WPKj", desc: "Item 18 Description", price: "120 CHF", sold: false },
                 { id: 19, src: "https://i.imgur.com/KODeWZu.jpg", desc: "Item 19 Description", price: "80 CHF", sold: false },
                 { id: 20, src: "https://i.imgur.com/FCSshj2.jpg", desc: "Item 20 Description", price: "300 CHF", sold: true },
                 { id: 21, src: "https://i.imgur.com/yilKfOJ.jpg", desc: "Item 21 Description", price: "90 CHF", sold: false },
@@ -200,12 +182,12 @@
                 { id: 26, src: "https://i.imgur.com/SbfsLME.jpg", desc: "Item 26 Description", price: "180 CHF", sold: false },
                 { id: 27, src: "https://i.imgur.com/Qf9rNi3.jpg", desc: "Item 27 Description", price: "130 CHF", sold: false },
                 { id: 28, src: "https://i.imgur.com/3gIO7X3.jpg", desc: "Item 28 Description", price: "160 CHF", sold: false },
-                { id: 29, src: "https://i.imgur.com/daqjm35.jpg", desc: "Item 29 Description", price: "60 CHF", sold: false },
-                { id: 30, src: "https://i.imgur.com/aHYYsiD.jpg", desc: "Item 30 Description", price: "75 CHF", sold: false },
-                { id: 31, src: "https://i.imgur.com/STSstJ9.jpg", desc: "Item 31 Description", price: "220 CHF", sold: true },
-                { id: 32, src: "https://i.imgur.com/9GcxuRK.jpg", desc: "Item 32 Description", price: "95 CHF", sold: false },
-                { id: 33, src: "https://i.imgur.com/F82O0a3.jpg", desc: "Item 33 Description", price: "140 CHF", sold: false },
-                { id: 34, src: "https://i.imgur.com/YlBM5b4.jpg", desc: "Item 34 Description", price: "1000 CHF", sold: true },
+                { id: 29, src: "https://i.imgur.com/gD8YY.png", desc: "Item 29 Description", price: "60 CHF", sold: false },
+                { id: 30, src: "https://i.imgur.com/gD8YY.png", desc: "Item 30 Description", price: "75 CHF", sold: false },
+                { id: 31, src: "https://i.imgur.com/gD8YY.png", desc: "Item 31 Description", price: "220 CHF", sold: true },
+                { id: 32, src: "https://i.imgur.com/gD8YY.png", desc: "Item 32 Description", price: "95 CHF", sold: false },
+                { id: 33, src: "https://i.imgur.com/gD8YY.png", desc: "Item 33 Description", price: "140 CHF", sold: false },
+                { id: 34, src: "https://i.imgur.com/gD8YY.png", desc: "Item 34 Description", price: "1000 CHF", sold: true },
                 { id: 35, src: "https://i.imgur.com/M1bJwkm.jpg", desc: "Item 17 Description", price: "200 CHF", sold: false },
                 { id: 36, src: "https://i.imgur.com/ArEDSRq.jpg", desc: "Item 18 Description", price: "120 CHF", sold: false },
                 { id: 37, src: "https://i.imgur.com/oDJi9Gu.jpg", desc: "Item 19 Description", price: "80 CHF", sold: false },
@@ -225,197 +207,148 @@
                 { id: 51, src: "https://i.imgur.com/F82O0a3.jpg", desc: "Item 33 Description", price: "140 CHF", sold: false },
                 { id: 52, src: "https://i.imgur.com/YlBM5b4.jpg", desc: "Item 34 Description", price: "1000 CHF", sold: true },
             ];
-
             const grid = document.getElementById('shop-container');
             const itemElements = [];
-
             // Layout constants
-            const GAP = 15;
-            const BASE_HEIGHT = 300;
+            const GAP = 60; // More spacious
+            const BASE_HEIGHT = 200; // Smaller before enlargement
             const SCALE_MULT = 2.0;
-
+            function getColumns() {
+                // Max 4 per row
+                if (window.innerWidth >= 900) return 4;
+                if (window.innerWidth >= 600) return 3;
+                return 2;
+            }
             let currentCols = getColumns();
             let baseWidth = 0;
             let containerWidth = 0;
             let activeIdx = -1; // Track which item is clicked
-
             // Populate DOM once
             function renderDOM() {
                 grid.innerHTML = '';
                 grid.className = 'shop-grid';
                 itemElements.length = 0;
-
                 products.forEach((product, idx) => {
                     const item = document.createElement('div');
                     item.className = 'product-item';
                     item.dataset.index = idx;
-
                     const img = document.createElement('img');
                     img.src = product.src;
                     img.alt = product.desc;
                     img.className = 'product-img';
-
                     const info = document.createElement('div');
                     info.className = 'shop-info';
-
                     const desc = document.createElement('div');
                     desc.className = 'shop-desc';
                     desc.textContent = product.desc;
-
                     const priceRow = document.createElement('div');
                     priceRow.className = 'shop-price-row';
-
                     const price = document.createElement('span');
                     price.className = 'shop-price';
                     price.textContent = product.price;
                     priceRow.appendChild(price);
-
                     const sold = document.createElement('span');
                     sold.className = 'shop-sold';
                     sold.textContent = 'SOLD';
                     if (product.sold) sold.classList.add('visible');
                     priceRow.appendChild(sold);
-
                     const btn = document.createElement('a');
                     btn.className = 'request-btn';
                     btn.textContent = product.sold ? "Send email regarding this item" : "Request this item";
-
                     const email = "placeholder@email.com";
                     btn.href = `mailto:${email}?subject=Request for ${product.desc}&body=Hi`;
-
                     info.appendChild(desc);
                     info.appendChild(priceRow);
                     info.appendChild(btn);
                     item.appendChild(img);
                     item.appendChild(info);
-
                     grid.appendChild(item);
                     itemElements.push(item);
                 });
             }
-
             // Calculate precise X, Y coordinates and Width/Height for every bubble
-            function calculateLayout(hoverIdx = -1) {
+            function calculateLayout(currentActiveIdx = -1) {
                 containerWidth = grid.getBoundingClientRect().width;
                 if (containerWidth === 0) return; // Hidden or not ready
-
                 // The base grid
                 const maxW = Math.min(1400, containerWidth); // from max-width in CSS
                 const totalGaps = (currentCols - 1) * GAP;
-                baseWidth = (maxW - totalGaps) / currentCols;
-
+                // To prevent edge items from getting cut off during a 2x expansion, 
+                // the grid needs a natural padding of exactly extraW/2 on the left and right.
+                // Since extraW = baseWidth (for a 2x scale), extraW/2 = baseWidth/2.
+                // So Space Needed = (currentCols * baseWidth) + totalGaps + 2*(baseWidth/2).
+                // Which simplifies to: Space Needed = (currentCols + 1) * baseWidth + totalGaps.
+                baseWidth = (maxW - totalGaps) / (currentCols + 1);
+                const safeMarginX = baseWidth / 2;
+                const safeMarginY = BASE_HEIGHT / 2; // Provide safe margin for vertical expansion too
                 const rowsCount = Math.ceil(products.length / currentCols);
                 let hc = -1, hr = -1;
-
-                if (hoverIdx !== -1) {
-                    hc = hoverIdx % currentCols;
-                    hr = Math.floor(hoverIdx / currentCols);
+                if (currentActiveIdx !== -1) {
+                    hc = currentActiveIdx % currentCols;
+                    hr = Math.floor(currentActiveIdx / currentCols);
                 }
-
                 // Desired extra size requested by User (2x)
                 const extraW = baseWidth * (SCALE_MULT - 1);
                 const extraH = BASE_HEIGHT * (SCALE_MULT - 1);
-
                 // For a bubble effect, the center grows +extraW. 
                 // We compress ONLY the neighbors in its path to absorb that extra width/height.
                 // Left neighbor loses half extraW, Right neighbor loses half extraW, etc.
-
                 itemElements.forEach((item, idx) => {
                     const c = idx % currentCols;
                     const r = Math.floor(idx / currentCols);
-
-                    // Base coordinates
-                    let x = c * (baseWidth + GAP);
-                    let y = r * (BASE_HEIGHT + GAP);
+                    // Base coordinates including safe border margin
+                    let x = safeMarginX + c * (baseWidth + GAP);
+                    let y = safeMarginY + r * (BASE_HEIGHT + GAP);
                     let w = baseWidth;
                     let h = BASE_HEIGHT;
-
+                    let dx = 0;
+                    let dy = 0;
+                    let sx = 1;
+                    let sy = 1;
                     // Reset Classes
                     item.className = 'product-item';
-
                     if (activeIdx !== -1) {
                         const dc = c - hc; // Distance in columns: -1 is left, +1 is right
                         const dr = r - hr; // Distance in rows: -1 is top, +1 is bottom
-
-                        // A push factor of < 1 means the adjacent neighbors won't be pushed entirely 
-                        // out of the way of the extra size, meaning they will overlap slightly
-                        // with the existing gaps to be "way closer" to the expanded picture.
-                        const PUSH_FACTOR = 0.8;
-
                         // IS TARGET 
                         if (dc === 0 && dr === 0) {
-                            w += extraW;
-                            h += extraH;
-                            // Centering growth: move backward by half the extra size
-                            x -= extraW / 2;
-                            y -= extraH / 2;
+                            sx = SCALE_MULT;
+                            sy = SCALE_MULT;
                             item.classList.add('active');
                         }
                         // IS NEIGHBOR (Distance <= 1 in both axis)
                         else if (Math.abs(dc) <= 1 && Math.abs(dr) <= 1) {
                             item.classList.add('neighbor');
                             item.classList.add('squeezed');
-
-                            // It's a neighbor! Squish it to absorb the bubble growth.
-                            if (dc !== 0 && dr === 0) {
-                                w -= extraW / 2; // Lose half the width
-                                if (dc < 0) x -= (extraW / 2) * PUSH_FACTOR;
-                                else x += (extraW / 2) * PUSH_FACTOR;
+                            // Compute scale so visual width shrinks exactly by extraW/2
+                            if (dc !== 0) {
+                                sx = (w - extraW / 2) / w;
+                                // Move center so bounding box aligns perfectly against target
+                                dx = (dc > 0 ? 1 : -1) * (extraW / 4);
                             }
-                            else if (dc === 0 && dr !== 0) {
-                                h -= extraH / 2;
-                                if (dr < 0) y -= (extraH / 2) * PUSH_FACTOR;
-                                else y += (extraH / 2) * PUSH_FACTOR;
-                            }
-                            else if (Math.abs(dc) === 1 && Math.abs(dr) === 1) {
-                                w -= extraW / 2;
-                                h -= extraH / 2;
-
-                                if (dc < 0) x -= (extraW / 2) * PUSH_FACTOR;
-                                else x += (extraW / 2) * PUSH_FACTOR;
-
-                                if (dr < 0) y -= (extraH / 2) * PUSH_FACTOR;
-                                else y += (extraH / 2) * PUSH_FACTOR;
+                            if (dr !== 0) {
+                                sy = (h - extraH / 2) / h;
+                                dy = (dr > 0 ? 1 : -1) * (extraH / 4);
                             }
                         }
-                        // OUTER SHELL: shifted normally
-                        else {
-                            if (dc === 0) {
-                                if (dr < 0) y -= extraH / 2;
-                                else y += extraH / 2;
-                            }
-                            else if (dr === 0) {
-                                if (dc < 0) x -= extraW / 2;
-                                else x += extraW / 2;
-                            }
-                            else {
-                                if (dc < 0) x -= extraW / 2;
-                                else x += extraW / 2;
-
-                                if (dr < 0) y -= extraH / 2;
-                                else y += extraH / 2;
-                            }
-                        }
+                        // Outer shells don't move or scale! The math above 
+                        // completely absorbs all extra space without pushing outwards.
                     }
-
-                    // Apply Styles
-                    item.style.transform = `translate(${x}px, ${y}px)`;
+                    // Apply Styles 
+                    // To distort text visually without reflow clipping, we use scale
+                    item.style.transform = `translate(${x + dx}px, ${y + dy}px) scale(${sx}, ${sy})`;
                     item.style.width = `${w}px`;
                     item.style.height = `${h}px`;
                 });
-
-                // Update Grid wrapper height so contents don't bleed out of flow
-                let totalH = rowsCount * (BASE_HEIGHT + GAP);
-                if (activeIdx !== -1) totalH += extraH;
+                // Update Grid wrapper height
+                // The size requirement is completely constant during click because the bubble shrinks neighbors rather than bloating the grid
+                let totalH = rowsCount * (BASE_HEIGHT + GAP) - GAP + (safeMarginY * 2);
                 grid.style.height = `${totalH}px`;
             }
-
             // Init
             renderDOM();
-
             // Allow CSS to load then calc
             setTimeout(() => calculateLayout(-1), 50);
-
             // Responsive updates
             window.addEventListener('resize', () => {
                 const newCols = getColumns();
@@ -424,36 +357,28 @@
                 }
                 calculateLayout(activeIdx);
             });
-
             // Click interactions
             activeIdx = -1;
-
             grid.addEventListener('click', (e) => {
                 const item = e.target.closest('.product-item');
-
                 // If they clicked the container gap, close
                 if (!item) {
                     activeIdx = -1;
                     calculateLayout(activeIdx);
                     return;
                 }
-
                 // Clicking a button shouldn't collapse the layout
                 if (e.target.closest('.request-btn')) return;
-
                 const clickedIdx = parseInt(item.dataset.index);
-
                 // Toggle
                 if (activeIdx === clickedIdx) {
                     activeIdx = -1;
                 } else {
                     activeIdx = clickedIdx;
                 }
-
                 calculateLayout(activeIdx);
             });
         });
     </script>
 </body>
-
 </html>
