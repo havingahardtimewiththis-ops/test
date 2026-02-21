@@ -8,7 +8,8 @@
         body {
             font-family: "Baskerville", serif;
             font-style: italic;
-            background-color: #f8f8f8;
+            /* Changed background to white as requested */
+            background-color: #ffffff;
             font-size: clamp(0.9rem, 2vw, 1.15rem);
             z-index: 1001;
             color: #000;
@@ -18,45 +19,69 @@
         .nav-row {
             text-align: right;
             padding-right: 10px;
+            margin-bottom: 20px;
         }
-        /* Shop Container & Viewer */
-        #shop-container {
+        /* Grid Container */
+        .shop-grid {
+            display: grid;
+            gap: 15px;
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 10px;
+            box-sizing: border-box;
+            /* Transitions for the squeeze effect. 
+               Using a cubic bezier for a more organic/liquid feel. */
+            transition: grid-template-columns 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
+                grid-template-rows 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        /* Product Item */
+        .product-item {
             display: flex;
             flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 80vh;
-            /* Center vertically in the viewport */
-            text-align: center;
-            padding-top: 20px;
+            box-sizing: border-box;
+            background-color: #ffffff;
+            /* Prevents long text from forcing the column to stay wide when squished */
+            min-width: 0;
         }
-        #shop-img {
-            max-height: 60vh;
-            max-width: 90%;
-            width: auto;
-            height: auto;
-            object-fit: contain;
-            cursor: pointer;
-            /* Indicates click to shuffle */
-            margin-bottom: 20px;
-            user-select: none;
+        .product-img {
+            width: 100%;
+            height: 10px;
+            /* Small base height so flex-grow handles sizing */
+            flex-grow: 1;
+            /* object-fit: fill; allows the image to stretch/squeeze horizontally and vertically */
+            object-fit: fill;
         }
         .shop-info {
             font-family: "Baskerville", serif;
             font-style: italic;
-            max-width: 600px;
-            margin: 0 auto;
+            text-align: center;
+            margin-top: 10px;
+            /* Fixed height ensures text container doesn't scale, only the image squishes */
+            height: 90px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            width: 100%;
         }
         .shop-desc {
-            margin: 5px 0;
+            margin: 0 0 5px 0;
             font-size: 1.1rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            width: 100%;
         }
         .shop-price-row {
-            margin: 5px 0;
+            margin: 0 0 5px 0;
             display: flex;
             justify-content: center;
             gap: 10px;
             align-items: center;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            width: 100%;
         }
         .shop-price {
             font-weight: bold;
@@ -65,27 +90,23 @@
             color: red;
             font-weight: bold;
             display: none;
-            /* Hidden by default */
         }
         .shop-sold.visible {
             display: inline;
         }
         .request-btn {
             display: inline-block;
-            margin-top: 15px;
             text-decoration: underline;
             color: black;
             cursor: pointer;
             font-size: 1rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 100%;
         }
         .request-btn:hover {
             text-decoration: none;
-        }
-        @media (max-width: 600px) {
-            #shop-img {
-                max-height: 50vh;
-                max-width: 90%;
-            }
         }
     </style>
 </head>
@@ -106,24 +127,14 @@
             &nbsp;&nbsp;<a style="text-decoration: none; color:black;" href="http:\\www.mariokreuzberg.com"
                 target="_self">Mario Kreuzberg</a>&nbsp;&nbsp;
             &nbsp;&nbsp;<a style="text-decoration: none; color:black;" href="http:\\hellenkeller.work"
-                    target="_self">Hellen Keller</a>&nbsp;&nbsp;
+                target="_self">Hellen Keller</a>&nbsp;&nbsp;
         </i>
     </div>
     <!-- Main Shop Viewer -->
-    <div id="shop-container">
-        <img id="shop-img" src="" alt="Souvenir Item">
-        <div class="shop-info">
-            <div id="shop-desc" class="shop-desc"></div>
-            <div class="shop-price-row">
-                <span id="shop-price" class="shop-price"></span>
-                <span id="shop-sold" class="shop-sold">SOLD</span>
-            </div>
-            <a id="request-btn" class="request-btn" href="#">Request this item</a>
-        </div>
-    </div>
+    <div id="shop-container"></div>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Placeholder Data - 20 Items
+            // Provided product data
             const products = [
                 { id: 1, src: "https://i.imgur.com/gD8YY.png", desc: "Item 1 Description", price: "100 CHF", sold: false },
                 { id: 2, src: "https://i.imgur.com/gD8YY.png", desc: "Item 2 Description", price: "150 CHF", sold: true },
@@ -160,52 +171,123 @@
                 { id: 19, src: "https://i.imgur.com/gD8YY.png", desc: "Item 19 Description", price: "140 CHF", sold: false },
                 { id: 20, src: "https://i.imgur.com/gD8YY.png", desc: "Item 20 Description", price: "1000 CHF", sold: true },
             ];
-            const imgEl = document.getElementById('shop-img');
-            const descEl = document.getElementById('shop-desc');
-            const priceEl = document.getElementById('shop-price');
-            const soldEl = document.getElementById('shop-sold');
-            const requestBtn = document.getElementById('request-btn');
-            let currentIndex = -1;
-            // Initialize
-            showRandomProduct();
-            // Click Image -> Show another random product
-            imgEl.addEventListener('click', () => {
-                showRandomProduct();
-            });
-            function showRandomProduct() {
-                let newIndex;
-                // Ensure we don't pick the same image twice in a row (unless there's only 1 item)
-                do {
-                    newIndex = Math.floor(Math.random() * products.length);
-                } while (newIndex === currentIndex && products.length > 1);
-                currentIndex = newIndex;
-                renderProduct(products[currentIndex]);
+            const grid = document.getElementById('shop-container');
+            // Setup responsive columns
+            function getColumns() {
+                if (window.innerWidth >= 1024) return 5;
+                if (window.innerWidth >= 768) return 4;
+                if (window.innerWidth >= 500) return 3;
+                return 2;
             }
-            function renderProduct(product) {
-                imgEl.src = product.src;
-                descEl.textContent = product.desc;
-                priceEl.textContent = product.price;
-                // Handle SOLD tag
-                if (product.sold) {
-                    soldEl.classList.add('visible');
-                    // Optional: Disable request button if sold? 
-                    // User didn't specify, but often sold items can't be requested.
-                    // For now, I'll update the mailto to say "Inquiry about SOLD item" just in case.
-                    requestBtn.textContent = "Send email regarding this item";
-                } else {
-                    soldEl.classList.remove('visible');
-                    requestBtn.textContent = "Request this item";
+            let currentCols = getColumns();
+            // Populate the grid securely
+            function renderGrid() {
+                grid.innerHTML = '';
+                grid.className = 'shop-grid';
+                products.forEach((product, idx) => {
+                    const item = document.createElement('div');
+                    item.className = 'product-item';
+                    item.dataset.index = idx; // So we track hover precisely map to x,y coords
+                    const img = document.createElement('img');
+                    img.src = product.src;
+                    img.alt = product.desc;
+                    img.className = 'product-img';
+                    const info = document.createElement('div');
+                    info.className = 'shop-info';
+                    const desc = document.createElement('div');
+                    desc.className = 'shop-desc';
+                    desc.textContent = product.desc;
+                    const priceRow = document.createElement('div');
+                    priceRow.className = 'shop-price-row';
+                    const price = document.createElement('span');
+                    price.className = 'shop-price';
+                    price.textContent = product.price;
+                    priceRow.appendChild(price);
+                    const sold = document.createElement('span');
+                    sold.className = 'shop-sold';
+                    sold.textContent = 'SOLD';
+                    if (product.sold) {
+                        sold.classList.add('visible');
+                    }
+                    priceRow.appendChild(sold);
+                    const btn = document.createElement('a');
+                    btn.className = 'request-btn';
+                    if (product.sold) {
+                        btn.textContent = "Send email regarding this item";
+                    } else {
+                        btn.textContent = "Request this item";
+                    }
+                    const email = "placeholder@email.com";
+                    const subject = `Request for ${product.desc} (ID: ${product.id})`;
+                    const body = `Hi,\n\nI am interested in purchasing: ${product.desc} (${product.price}).\n\nPlease let me know if it is available.`;
+                    btn.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+                    info.appendChild(desc);
+                    info.appendChild(priceRow);
+                    info.appendChild(btn);
+                    item.appendChild(img);
+                    item.appendChild(info);
+                    grid.appendChild(item);
+                });
+                updateGridTemplate(-1, -1);
+            }
+            // Calculate precisely how much `fr` the hovered column needs to reach 1.3x size.
+            function getHoverFr(cols, multiplier = 1.3) {
+                if (cols <= 1) return 1;
+                const normalPct = 1 / cols;
+                const targetPct = Math.min(normalPct * multiplier, 0.9);
+                const remainderPct = (1 - targetPct) / (cols - 1);
+                return targetPct / remainderPct;
+            }
+            // Centralized animation map over CSS grid tracks
+            function updateGridTemplate(hoverIdx) {
+                const cols = currentCols;
+                const rowsCount = Math.ceil(products.length / cols);
+                // Construct Grid Columns map (fraction basis)
+                let colTemplate = Array(cols).fill('minmax(0, 1fr)');
+                let rowTemplate = Array(rowsCount).fill('300px'); // Base height
+                if (hoverIdx !== -1) {
+                    const c = hoverIdx % cols; // target column
+                    const r = Math.floor(hoverIdx / cols); // target row
+                    // We modify columns to double the target column's width.
+                    // The easiest CSS Grid way to "only affect siblings" is using complex
+                    // fractional math that squishes adjacent columns to make space for 2fr,
+                    // without making furthest columns shrink too much.
+                    // We'll give target Col 2fr, and adjacent cols 0.5fr, and remaining cols 1fr.
+                    for (let x = 0; x < cols; x++) {
+                        if (x === c) colTemplate[x] = 'minmax(0, 2fr)'; // 2x Width (approx depending on other elements)
+                        else if (Math.abs(x - c) === 1) colTemplate[x] = 'minmax(0, 0.5fr)'; // Squeeze adjacents
+                        else colTemplate[x] = 'minmax(0, 1fr)'; // Rest remain standard
+                    }
+                    // Modify row heights to achieve the 2x height scale 
+                    // Base size was 300px, we make it 600px
+                    for (let y = 0; y < rowsCount; y++) {
+                        if (y === r) rowTemplate[y] = '600px'; // 2x Height
+                        else if (Math.abs(y - r) === 1) rowTemplate[y] = '150px'; // Squeeze adjacent rows vertically
+                        else rowTemplate[y] = '300px'; // Rest remain standard
+                    }
                 }
-                // Update Mailto Link
-                // Using generic email or if user has one. I'll use a placeholder or blank for now.
-                // Assuming "contact" page has the email, but for mailto we need an address.
-                // I'll put "charlesbenjamin@example.com" as placeholder or just leave it open to user to fill.
-                // Better: I'll use a generic address and ask user to fill it.
-                const email = "placeholder@email.com";
-                const subject = `Request for ${product.desc} (ID: ${product.id})`;
-                const body = `Hi,\n\nI am interested in purchasing: ${product.desc} (${product.price}).\n\nPlease let me know if it is available.`;
-                requestBtn.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+                grid.style.gridTemplateColumns = colTemplate.join(' ');
+                grid.style.gridTemplateRows = rowTemplate.join(' ');
             }
+            renderGrid();
+            // Re-eval on orientation change / resize
+            window.addEventListener('resize', () => {
+                const newCols = getColumns();
+                if (newCols !== currentCols) {
+                    currentCols = newCols;
+                    updateGridTemplate(-1);
+                }
+            });
+            // Map standard mouseevents intelligently over the grid
+            grid.addEventListener('mouseover', (e) => {
+                const item = e.target.closest('.product-item');
+                if (!item) return;
+                const idx = parseInt(item.dataset.index);
+                updateGridTemplate(idx);
+            });
+            grid.addEventListener('mouseleave', () => {
+                updateGridTemplate(-1);
+            });
         });
     </script>
 </body>
